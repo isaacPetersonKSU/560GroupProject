@@ -1,0 +1,10 @@
+Project Summary: 
+
+Technical Details:
+
+Data Interactions:
+
+Report Queries:
+
+Initital Database Design:
+	See diagrams
