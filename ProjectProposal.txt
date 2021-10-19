@@ -1,10 +1,19 @@
 Project Summary: 
 
 Technical Details:
-
+	We plan to use make our program in C# using Visual Studio
+	and Windows Forms.
 Data Interactions:
 
 Report Queries:
-
+	1)Find the top five players in terms of a particular stat
+	and rank them.
+	2)For a given team, show every team they played and rank them
+	according to their total point differential for the season
+	3) Determine all players stats for a game including all-purpose
+	yards by combining rushing, passing, recieving, and return 
+	yards. Show players name and number as well
+	4) Return all games that have a greater total score than
+	given for a given team
 Initital Database Design:
 	See diagrams
