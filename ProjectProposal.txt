@@ -3,7 +3,7 @@ Project Summary:
 Technical Details:
 	We plan to use make our program in C# using Visual Studio
 	and Windows Forms.
-Data Interactions:
+Data Interactions: We will use the insert for adding new players each year for the draft or etc. We will use the update to update the stats week from week. We may add a delete function to delete messed up entries or if a player is retired. Lastly we will add a select to find certain players for a critera or search.
 
 Report Queries:
 	1)Find the top five players in terms of a particular stat
