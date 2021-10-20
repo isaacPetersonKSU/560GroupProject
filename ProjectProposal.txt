@@ -10,14 +10,21 @@ Data Interactions:
 	Lastly we will add a select to find certain players for a critera or search.
 
 Report Queries:
-	1)Find the top five players in terms of a particular stat
+	1)Find the top players in terms of touchdowns
 	and rank them.
+	Input: Number of players to list
+	Result Columns:Rank, Name, Touchdowns
 	2)For a given team, show every team they played and rank them
 	according to their total point differential for the season
+	Input: Team Name
+	Result Columns: Rank, TeamName, Wins, Losses, PointDifferential
 	3) Determine all players stats for a game including all-purpose
 	yards by combining rushing, passing, recieving, and return 
 	yards. Show players name and number as well
-	4) Return all games that have a greater total score than
-	given for a given team
+	Input: GameID
+	Result Columns: Date, TeamName, AllPurposeYards
+	4) Return all games in a given month along with scores
+	Input: FirstDate, LastDate
+	Result Columns: Date, HomeTeamName, HomeScore, VisitorName, VisitorScore
 Initital Database Design:
 	See diagrams
