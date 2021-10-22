@@ -41,7 +41,7 @@ Data Interaction: (SELECT, INSERT, UPDATE, and DELETE)
 	TeamTypes: SELECT, INSERT
 		colmns will be inserted here to correspond with TeamGames as it 
 		is added to.
-		
+		v
 Report Queries:
 	1)Find the top players in terms of touchdowns
 	and rank them.
