@@ -1,3 +1,5 @@
+USE PrimaryData
+
 IF OBJECT_ID(N'Season.Team') IS NULL
 BEGIN
    CREATE TABLE Season.Team
@@ -21,7 +23,7 @@ BEGIN
 	  LastName NVARCHAR(64) NOT NULL,
 	  Number INT NOT NULL
 
-      UNIQUE(TeamID)
+      UNIQUE(PlayerID, TeamID)
    );
 END;
 
@@ -59,8 +61,8 @@ BEGIN
 			REFERENCES Season.TeamType(TeamTypeID),
 		Score INT NOT NULL
 		
-		UNIQUE(TeamID, GameID, TeamTypeID)
-	
+		UNIQUE(GameID, TeamTypeID),
+		UNIQUE(GameID, TeamID)
    );
 END;
 
@@ -69,12 +71,29 @@ BEGIN
    CREATE TABLE Season.PlayerGame
    (
 		PlayerGameID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-		GameID INT NOT NULL FOREIGN KEY
-			REFERENCES Season.Game(GameID),
-		PlayerID INT NOT NULL FOREIGN KEY
-			REFERENCES Season.Player(PlayerID),
-		TeamID INT NOT NULL FOREIGN KEY
-			REFERENCES Season.Team(TeamID),
+		GameID INT NOT NULL,
+		PlayerID INT NOT NULL,
+		TeamID INT NOT NULL,
+		FOREIGN KEY
+		(
+         GameID,
+         TeamID
+		)
+		REFERENCES Season.TeamGame
+		(
+         GameID,
+         TeamID
+		 ),
+		 FOREIGN KEY
+		(
+         PlayerID,
+		 TeamID
+		)
+		REFERENCES Season.Player
+		(
+         PlayerID,
+		 TeamID
+		 ),
 		Sacks DECIMAL(3,1) NOT NULL,
 		InterceptionsThrown INT NOT NULL,
 		InterceptionsCaught INT NOT NULL,
