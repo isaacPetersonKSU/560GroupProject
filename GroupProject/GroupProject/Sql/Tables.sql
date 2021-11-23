@@ -1,4 +1,4 @@
-USE PrimaryData
+USE PrimaryData;
 
 IF OBJECT_ID(N'Season.Team') IS NULL
 BEGIN
@@ -6,9 +6,10 @@ BEGIN
    (
       TeamID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
       [Name] NVARCHAR(64) NOT NULL,
-	  [Location] NVARCHAR(64) NOT NULL
+	  [Location] NVARCHAR(64) NOT NULL,
+	  Abreviation NVARCHAR(4) NOT NULL
 
-      UNIQUE([Name])
+      UNIQUE([Name], Abreviation)
    );
 END;
 
@@ -31,7 +32,7 @@ IF OBJECT_ID(N'Season.TeamType') IS NULL
 BEGIN
    CREATE TABLE Season.TeamType
    (
-      TeamTypeID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+      TeamType INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	  [Name] NVARCHAR(8) NOT NULL,
 
       UNIQUE([Name])
@@ -58,7 +59,7 @@ BEGIN
 		GameID INT NOT NULL FOREIGN KEY
 			REFERENCES Season.Game(GameID),
 		TeamTypeID INT NOT NULL FOREIGN KEY
-			REFERENCES Season.TeamType(TeamTypeID),
+			REFERENCES Season.TeamType(TeamType),
 		Score INT NOT NULL
 		
 		UNIQUE(GameID, TeamTypeID),
@@ -94,16 +95,14 @@ BEGIN
          PlayerID,
 		 TeamID
 		 ),
-		Sacks DECIMAL(3,1) NOT NULL,
 		InterceptionsThrown INT NOT NULL,
-		InterceptionsCaught INT NOT NULL,
 		Fumbles INT NOT NULL,
-		ForcedFumbles INT NOT NULL,
-		Tackles INT NOT NULL,
-		Touchdowns INT NOT NULL,
+		RushingTouchdowns INT NOT NULL,
+		PassingTouchdowns INT NOT NULL,
+		ReceivingTouchdowns INT NOT NULL,
+		Receptions INT NOT NULL,
 		RushingYards INT NOT NULL,
 		PassingYards INT NOT NULL,
 		ReceivingYards INT NOT NULL,
-		ReturnYards INT NOT NULL
    );
 END;

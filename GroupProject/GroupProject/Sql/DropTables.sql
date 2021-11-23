@@ -1,3 +1,4 @@
+USE PrimaryData;
 DROP TABLE IF EXISTS Season.PlayerGame;
 DROP TABLE IF EXISTS Season.TeamGame;
 DROP TABLE IF EXISTS Season.Game;
