@@ -274,15 +274,18 @@ VALUES
 	(2, 'Away');
 
  --Team Table
+ INSERT Season.TeamGame
+ SELECT DISTINCT(WinnerName) 
+ FROM @GameStagingTable;
 
  --Dummy Values
  INSERT Season.Team([Name], Abbreviation)
  VALUES
 	(N'Kansas City Chiefs',N'KC');
 
- INSERT Season.Player([Name], Number, TeamID)
+ INSERT Season.Player([Name], Position, Number, TeamID)
  VALUES
-	(N'Patrick Mahomes', 7, 1);
+	(N'Patrick Mahomes', 'QB', 7, 1);
 
  INSERT Season.Game([Date])
  VALUES
