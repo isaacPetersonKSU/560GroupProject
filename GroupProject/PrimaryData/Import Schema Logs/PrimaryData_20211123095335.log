@@ -1,0 +1,84 @@
+11/23/2021 3:53:35 PM	This log contains information about the import schema operation into project 'PrimaryData' on computer 'DESKTOP-1V3MK16' by user 'Koelzer'.
+11/23/2021 3:53:36 PM	Import of database schema has started.
+11/23/2021 3:53:42 PM	Gathering database credentials
+11/23/2021 3:53:42 PM	Gathering database options
+11/23/2021 3:53:42 PM	Gathering users
+11/23/2021 3:53:42 PM	Gathering roles
+11/23/2021 3:53:42 PM	Gathering application roles
+11/23/2021 3:53:42 PM	Gathering role memberships
+11/23/2021 3:53:42 PM	Gathering filegroups
+11/23/2021 3:53:42 PM	Gathering full-text catalogs
+11/23/2021 3:53:42 PM	Gathering assemblies
+11/23/2021 3:53:42 PM	Gathering certificates
+11/23/2021 3:53:42 PM	Gathering asymmetric keys
+11/23/2021 3:53:42 PM	Gathering symmetric keys
+11/23/2021 3:53:42 PM	Gathering encrypted symmetric keys
+11/23/2021 3:53:42 PM	Gathering schemas
+11/23/2021 3:53:42 PM	Gathering XML schema collections
+11/23/2021 3:53:42 PM	Gathering user-defined data types
+11/23/2021 3:53:42 PM	Gathering user-defined types
+11/23/2021 3:53:42 PM	Gathering table types
+11/23/2021 3:53:42 PM	Gathering unique keys for table types
+11/23/2021 3:53:42 PM	Gathering primary keys for table types
+11/23/2021 3:53:42 PM	Gathering indexes for table types
+11/23/2021 3:53:42 PM	Gathering check constraints for table types
+11/23/2021 3:53:42 PM	Gathering default constraints for table types
+11/23/2021 3:53:42 PM	Gathering partition functions
+11/23/2021 3:53:42 PM	Gathering partition schemes
+11/23/2021 3:53:42 PM	Gathering functions
+11/23/2021 3:53:42 PM	Gathering encrypted functions
+11/23/2021 3:53:42 PM	Gathering aggregates
+11/23/2021 3:53:42 PM	Gathering procedures
+11/23/2021 3:53:42 PM	Gathering encrypted procedures
+11/23/2021 3:53:42 PM	Gathering tables
+11/23/2021 3:53:42 PM	Gathering primary keys
+11/23/2021 3:53:42 PM	Gathering unique constraints
+11/23/2021 3:53:42 PM	Gathering foreign keys
+11/23/2021 3:53:42 PM	Gathering default constraints
+11/23/2021 3:53:42 PM	Gathering check constraints
+11/23/2021 3:53:42 PM	Gathering views
+11/23/2021 3:53:42 PM	Gathering encrypted views
+11/23/2021 3:53:42 PM	Gathering indexes
+11/23/2021 3:53:42 PM	Gathering statistics
+11/23/2021 3:53:42 PM	Gathering full-text index stoplists
+11/23/2021 3:53:42 PM	Gathering search property lists
+11/23/2021 3:53:42 PM	Gathering search properties
+11/23/2021 3:53:42 PM	Gathering full-text indexes
+11/23/2021 3:53:42 PM	Gathering column store indexes
+11/23/2021 3:53:42 PM	Gathering spatial indexes
+11/23/2021 3:53:42 PM	Gathering XML indexes
+11/23/2021 3:53:42 PM	Gathering Selective XML indexes
+11/23/2021 3:53:42 PM	Gathering encrypted triggers
+11/23/2021 3:53:42 PM	Gathering triggers
+11/23/2021 3:53:42 PM	Gathering encrypted and clr ddl triggers
+11/23/2021 3:53:42 PM	Gathering ddl triggers
+11/23/2021 3:53:42 PM	Gathering synonyms
+11/23/2021 3:53:42 PM	Gathering defaults
+11/23/2021 3:53:42 PM	Gathering data constraint uddt bindings
+11/23/2021 3:53:42 PM	Gathering rules
+11/23/2021 3:53:42 PM	Gathering data constraint uddt bindings
+11/23/2021 3:53:42 PM	Gathering message types
+11/23/2021 3:53:42 PM	Gathering queues
+11/23/2021 3:53:42 PM	Gathering contracts
+11/23/2021 3:53:42 PM	Gathering services
+11/23/2021 3:53:42 PM	Gathering event notifications
+11/23/2021 3:53:42 PM	Gathering remote service bindings
+11/23/2021 3:53:42 PM	Gathering broker priorities
+11/23/2021 3:53:42 PM	Gathering signatures
+11/23/2021 3:53:42 PM	Gathering data compression options
+11/23/2021 3:53:42 PM	Gathering sequence types
+11/23/2021 3:53:42 PM	Gathering security policies
+11/23/2021 3:53:42 PM	Gather column encryption keys
+11/23/2021 3:53:42 PM	Gathering column master keys
+11/23/2021 3:53:42 PM	Gathering external data sources
+11/23/2021 3:53:42 PM	Gathering external file formats
+11/23/2021 3:53:42 PM	Gathering external tables
+11/23/2021 3:53:42 PM	Gathering extended properties
+11/23/2021 3:53:42 PM	Gathering credentials
+11/23/2021 3:53:42 PM	Gathering logins
+11/23/2021 3:53:42 PM	Gathering server audits
+11/23/2021 3:53:43 PM	Scanning project for duplicate elements
+11/23/2021 3:53:43 PM	Finished duplicate element processing
+11/23/2021 3:53:44 PM	Finished importing database.
+11/23/2021 3:53:44 PM	A summary of the import was saved to the following location: C:\Users\Koelzer\source\repos\560GroupProject1\GroupProject\PrimaryData\Import Schema Logs\PrimaryData_20211123095335.log
+11/23/2021 3:53:44 PM	Click Finish to continue...
