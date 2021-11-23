@@ -6,7 +6,6 @@ BEGIN
    (
       TeamID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
       [Name] NVARCHAR(64) NOT NULL,
-	  [Location] NVARCHAR(64) NOT NULL,
 	  Abreviation NVARCHAR(4) NOT NULL
 
       UNIQUE([Name], Abreviation)
@@ -32,7 +31,7 @@ IF OBJECT_ID(N'Season.TeamType') IS NULL
 BEGIN
    CREATE TABLE Season.TeamType
    (
-      TeamType INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+      TeamTypeID TINYINT NOT NULL PRIMARY KEY,
 	  [Name] NVARCHAR(8) NOT NULL,
 
       UNIQUE([Name])
@@ -45,7 +44,7 @@ BEGIN
    (
       GameID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	  [Location] NVARCHAR(64) NOT NULL,
-	  [Date] DATETIME NOT NULL
+	  [Date] DATE NOT NULL
    );
 END;
 
@@ -58,8 +57,8 @@ BEGIN
 			REFERENCES Season.Team(TeamID),
 		GameID INT NOT NULL FOREIGN KEY
 			REFERENCES Season.Game(GameID),
-		TeamTypeID INT NOT NULL FOREIGN KEY
-			REFERENCES Season.TeamType(TeamType),
+		TeamTypeID TINYINT NOT NULL FOREIGN KEY
+			REFERENCES Season.TeamType(TeamTypeID),
 		Score INT NOT NULL
 		
 		UNIQUE(GameID, TeamTypeID),
