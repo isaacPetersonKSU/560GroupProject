@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Season]
+    AUTHORIZATION [dbo];
+
