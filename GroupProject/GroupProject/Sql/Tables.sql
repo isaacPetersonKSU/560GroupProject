@@ -6,9 +6,9 @@ BEGIN
    (
       TeamID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
       [Name] NVARCHAR(64) NOT NULL,
-	  Abreviation NVARCHAR(4) NOT NULL
+	  Abbreviation NVARCHAR(4) NOT NULL
 
-      UNIQUE([Name], Abreviation)
+      UNIQUE([Name], Abbreviation)
    );
 END;
 
@@ -19,8 +19,7 @@ BEGIN
       PlayerID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	  TeamID INT NOT NULL FOREIGN KEY
 		REFERENCES Season.Team(TeamID),
-      FirstName NVARCHAR(64) NOT NULL,
-	  LastName NVARCHAR(64) NOT NULL,
+      [Name] NVARCHAR(64) NOT NULL,
 	  Number INT NOT NULL
 
       UNIQUE(PlayerID, TeamID)
@@ -43,7 +42,6 @@ BEGIN
    CREATE TABLE Season.Game
    (
       GameID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	  [Location] NVARCHAR(64) NOT NULL,
 	  [Date] DATE NOT NULL
    );
 END;
