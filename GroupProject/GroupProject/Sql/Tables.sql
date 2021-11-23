@@ -20,6 +20,7 @@ BEGIN
 	  TeamID INT NOT NULL FOREIGN KEY
 		REFERENCES Season.Team(TeamID),
       [Name] NVARCHAR(64) NOT NULL,
+	  Position NVARCHAR(64) NOT NULL,
 	  Number INT NOT NULL
 
       UNIQUE(PlayerID, TeamID)
@@ -97,6 +98,7 @@ BEGIN
 		RushingTouchdowns INT NOT NULL,
 		PassingTouchdowns INT NOT NULL,
 		ReceivingTouchdowns INT NOT NULL,
+		RushAttempts INT NOT NULL,
 		Receptions INT NOT NULL,
 		RushingYards INT NOT NULL,
 		PassingYards INT NOT NULL,
