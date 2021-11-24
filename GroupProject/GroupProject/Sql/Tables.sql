@@ -129,6 +129,7 @@ CREATE TABLE Season.PlayerStatsStaging
 	Position NVARCHAR(8) NOT NULL,
 	PlayerName NVARCHAR(64) NOT NULL,
 	TeamAbrv NVARCHAR(8) NOT NULL,
+	GameDate DATE NOT NULL,
 	PassingYards INT NOT NULL,
 	PassingTouchdowns INT NOT NULL,
 	InterceptionsThrown INT NOT NULL,
