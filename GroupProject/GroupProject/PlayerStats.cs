@@ -8,34 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
 namespace GroupProject
 {
-    public partial class Form1 : Form
+    public partial class PlayerStats : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrimaryData;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False");
-        SqlDataAdapter adpt;
+        SqlDataAdapter adpt= new SqlDataAdapter();
         DataTable dt;
-        public Form1()
+        public PlayerStats()
         {
             InitializeComponent();
-            showdata();
         }
-
-        public void showdata()
+        public void showdata(int PlayerID)
         {
-            adpt = new SqlDataAdapter("select * from Season.Player", con);
+            string sqltext = @"select * from Season.PlayerGame 
+                                where PlayerID=@PlayerID";
             dt = new DataTable();
-            adpt.Fill(dt);
-            dataGridView1.DataSource = dt;
-        }
-
-        public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            PlayerStats ps = new PlayerStats();
-            int PlayerID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            ps.showdata(PlayerID);
-            ps.ShowDialog();
+            using(SqlDataAdapter adpt = new SqlDataAdapter(sqltext, con))
+            {
+                adpt.SelectCommand.Parameters.Add("@PlayerID",
+                    SqlDbType.Int).Value = PlayerID;
+                adpt.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            
         }
     }
 }

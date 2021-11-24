@@ -8,3 +8,4 @@ C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\GroupProject\obj\Deb
 C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\GroupProject\obj\Debug\GroupProject.csproj.CoreCompileInputs.cache
 C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\GroupProject\obj\Debug\GroupProject.exe
 C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\GroupProject\obj\Debug\GroupProject.PlayerStats.resources
