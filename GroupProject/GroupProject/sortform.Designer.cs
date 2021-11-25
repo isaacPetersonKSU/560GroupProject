@@ -1,7 +1,7 @@
 ﻿
 namespace GroupProject
 {
-    partial class Form1
+    partial class sortform
     {
         /// <summary>
         /// Required designer variable.
@@ -39,19 +39,17 @@ namespace GroupProject
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(522, 432);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // Form1
+            // sortform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(544, 384);
+            this.ClientSize = new System.Drawing.Size(522, 432);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
-            this.Text = "NFL Players";
+            this.Name = "sortform";
+            this.Text = "sortform";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -62,4 +60,3 @@ namespace GroupProject
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
-
