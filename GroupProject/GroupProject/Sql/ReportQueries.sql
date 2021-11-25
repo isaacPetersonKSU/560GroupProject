@@ -2,33 +2,101 @@ USE PrimaryData;
 
 
 --Ranks players by total number of touchdowns scored
-DROP PROCEDURE IF EXISTS Season.usp_PlayersByTouchdowns;
+DROP PROCEDURE IF EXISTS Season.usp_PlayersByTotalTouchdowns;
 GO
-
-CREATE PROCEDURE Season.usp_PlayersByTouchdowns
+CREATE PROCEDURE Season.usp_PlayersByTotalTouchdowns
 AS
 SELECT 
-	P.Name, 
-	SUM(PG.PassingTouchdowns) + SUM (PG.ReceivingTouchdowns) 
-		+ SUM(PG.RushingTouchdowns) AS Touchdowns
+	P.Name, T.Name AS Team,
+	SUM(PG.PassingTouchdowns) AS PassingTDs,
+	SUM(PG.ReceivingTouchdowns) AS ReceivingTDs,
+	SUM(PG.RushingTouchdowns) AS RushingTDs,
+	SUM(PG.PassingTouchdowns) + SUM(PG.ReceivingTouchdowns)
+		+ SUM(PG.RushingTouchdowns) AS TotalTDs
 FROM Season.Player P
 	INNER JOIN Season.PlayerGame PG
 	ON P.PlayerID = PG.PlayerID
-GROUP BY P.Name
-ORDER BY Touchdowns DESC;
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+GROUP BY P.Name, T.Name
+ORDER BY TotalTDs DESC;
 GO
 
-EXEC Season.usp_PlayersByTouchdowns;
+EXEC Season.usp_PlayersByTotalTouchdowns;
 GO
 
 
 
 
 
---Ranks all teams a particular team has played by scores
-SELECT T.Name
-FROM Season.Team T 
---NOT DONE YET!!!!!!!!!!!
+--Ranks players by passing touchdowns
+DROP PROCEDURE IF EXISTS Season.usp_PlayersByPassingTouchdowns;
+GO
+CREATE PROCEDURE Season.usp_PlayersByPassingTouchdowns
+AS
+SELECT 
+	P.Name, T.Name AS Team,
+	SUM(PG.PassingTouchdowns) AS PassingTDs
+FROM Season.Player P
+	INNER JOIN Season.PlayerGame PG
+	ON P.PlayerID = PG.PlayerID
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+GROUP BY P.Name, T.Name
+ORDER BY PassingTDs DESC;
+GO
+
+EXEC Season.usp_PlayersByPassingTouchdowns;
+GO
+
+
+
+
+--Ranks players by receiving touchdowns
+DROP PROCEDURE IF EXISTS Season.usp_PlayersByReceivingTouchdowns;
+GO
+CREATE PROCEDURE Season.usp_PlayersByReceivingTouchdowns
+AS
+SELECT 
+	P.Name, T.Name AS Team,
+	SUM(PG.ReceivingTouchdowns) AS ReceivingTDs
+FROM Season.Player P
+	INNER JOIN Season.PlayerGame PG
+	ON P.PlayerID = PG.PlayerID
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+GROUP BY P.Name, T.Name
+ORDER BY ReceivingTDs DESC;
+GO
+
+EXEC Season.usp_PlayersByReceivingTouchdowns
+GO
+
+
+
+
+--Ranks players by Rushing touchdowns
+DROP PROCEDURE IF EXISTS Season.usp_PlayersByRushingTouchdowns;
+GO
+CREATE PROCEDURE Season.usp_PlayersByRushingTouchdowns
+AS
+SELECT 
+	P.Name, T.Name AS Team,
+	SUM(PG.RushingTouchdowns) AS RushingTDs
+FROM Season.Player P
+	INNER JOIN Season.PlayerGame PG
+	ON P.PlayerID = PG.PlayerID
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+GROUP BY P.Name, T.Name
+ORDER BY RushingTDs DESC;
+GO
+
+EXEC Season.usp_PlayersByRushingTouchdowns
+GO
+
+
+
 
 
 
