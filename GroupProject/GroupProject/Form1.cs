@@ -24,7 +24,9 @@ namespace GroupProject
 
         public void showdata()
         {
-            adpt = new SqlDataAdapter("select * from Season.Player", con);
+            SqlCommand mycmd = new SqlCommand("PlayerList", con);
+            mycmd.CommandType = CommandType.StoredProcedure;
+            adpt = new SqlDataAdapter(mycmd);
             dt = new DataTable();
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -34,7 +36,9 @@ namespace GroupProject
         {
             PlayerStats ps = new PlayerStats();
             int PlayerID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            ps.showdata(PlayerID);
+            int TeamID = (int)dataGridView1.CurrentRow.Cells[4].Value;
+            ps.showdata(PlayerID, TeamID);
+            ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
         }
     }
