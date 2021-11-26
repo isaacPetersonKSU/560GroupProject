@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GroupProject",
+    "\\GroupProject\\GroupProject"
   ],
-  "SelectedNode": "\\ProjectProposal.txt",
+  "SelectedNode": "\\GroupProject\\GroupProject.sln",
   "PreviewInSolutionExplorer": false
 }
