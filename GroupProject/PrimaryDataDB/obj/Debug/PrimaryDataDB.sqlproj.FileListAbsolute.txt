@@ -1,0 +1,10 @@
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\bin\Debug\PrimaryDataDB.dacpac
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\bin\Debug\PrimaryDataDB.dll
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\bin\Debug\PrimaryDataDB.pdb
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\PrimaryDataDB.sqlproj.AssemblyReference.cache
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\Model.xml
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\refactor.xml
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\postdeploy.sql
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\predeploy.sql
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\PrimaryDataDB.dll
+C:\Users\Koelzer\Source\Repos\560GroupProject1\GroupProject\PrimaryDataDB\obj\Debug\PrimaryDataDB.pdb
