@@ -53,11 +53,11 @@ Report Queries:
 	Result Columns: Rank, TeamName, Wins, Losses, PointDifferential
 	3) Determine all players stats for a game including all-purpose
 	yards by combining rushing, passing, recieving, and return 
-	yards. Show players name and number as well
+	yards. Show players name as well
 	Input: GameID
-	Result Columns: Date, TeamName, AllPurposeYards
-	4) Return all games in a given month along with scores
-	Input: FirstDate, LastDate
-	Result Columns: Date, HomeTeamName, HomeScore, VisitorName, VisitorScore
+	Result Columns: Name, Date, TeamName, AllPurposeYards
+	4) Return a teams total stats for a range of dates by adding up stats for each player
+	Input: StartDate, EndDate
+	Result Columns: TeamName, every stat in PLayerStats
 Initital Database Design:
 	See diagrams
