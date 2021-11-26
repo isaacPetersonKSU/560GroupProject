@@ -20,7 +20,7 @@ BEGIN
 	  TeamID INT NOT NULL FOREIGN KEY
 		REFERENCES Season.Team(TeamID),
       [Name] NVARCHAR(64) NOT NULL,
-	  Number INT NOT NULL
+	  Position NVARCHAR(8) NOT NULL
 
       UNIQUE(PlayerID, TeamID)
    );
@@ -42,6 +42,7 @@ BEGIN
    CREATE TABLE Season.Game
    (
       GameID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	  SourceGameID INT NOT NULL,
 	  [Date] DATE NOT NULL
    );
 END;
@@ -92,14 +93,52 @@ BEGIN
          PlayerID,
 		 TeamID
 		 ),
-		InterceptionsThrown INT NOT NULL,
-		Fumbles INT NOT NULL,
-		RushingTouchdowns INT NOT NULL,
-		PassingTouchdowns INT NOT NULL,
-		ReceivingTouchdowns INT NOT NULL,
-		Receptions INT NOT NULL,
-		RushingYards INT NOT NULL,
 		PassingYards INT NOT NULL,
+		PassingTouchdowns INT NOT NULL,
+		InterceptionsThrown INT NOT NULL,
+		RushAttempts INT NOT NULL,
+		RushingYards INT NOT NULL,
+		RushingTouchdowns INT NOT NULL,
+		Receptions INT NOT NULL,
 		ReceivingYards INT NOT NULL,
+		ReceivingTouchdowns INT NOT NULL,
+		Fumbles INT NOT NULL,
    );
+END;
+
+IF OBJECT_ID(N'Season.GamesStaging') IS NULL
+BEGIN
+CREATE TABLE Season.GamesStaging
+(
+	[Date] DATE NOT NULL,
+	WinnerName NVARCHAR(64) NOT NULL,
+	LoserName NVARCHAR(64) NOT NULL,
+	WinnerAway NVARCHAR(2) NOT NULL,
+	WinnerScore INT NOT NULL,
+	LoserScore INT NOT NULL,
+	WinnerAbrv NVARCHAR(8) NOT NULL,
+	LoserAbrv NVARCHAR(8) NOT NULL,
+	SourceGameID INT NOT NULL
+);
+END;
+
+IF OBJECT_ID(N'Season.PlayerStatsStaging') IS NULL
+BEGIN
+CREATE TABLE Season.PlayerStatsStaging
+(
+	Position NVARCHAR(8) NOT NULL,
+	PlayerName NVARCHAR(64) NOT NULL,
+	TeamAbrv NVARCHAR(8) NOT NULL,
+	GameDate DATE NOT NULL,
+	PassingYards INT NOT NULL,
+	PassingTouchdowns INT NOT NULL,
+	InterceptionsThrown INT NOT NULL,
+	RushingYards INT NOT NULL,
+	RushingTouchdowns INT NOT NULL,
+	Receptions INT NOT NULL,
+	ReceivingYards INT NOT NULL,
+	ReceivingTouchdowns INT NOT NULL,
+	Fumbles INT NOT NULL,
+	RushAttempts INT NOT NULL
+);
 END;
