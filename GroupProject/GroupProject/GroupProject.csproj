@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefaultView.Designer.cs">
+      <DependentUpon>DefaultView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeachForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="sortform.Designer.cs">
       <DependentUpon>sortform.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DefaultView.resx">
+      <DependentUpon>DefaultView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SeachForm.resx">
       <DependentUpon>SeachForm.cs</DependentUpon>
     </EmbeddedResource>

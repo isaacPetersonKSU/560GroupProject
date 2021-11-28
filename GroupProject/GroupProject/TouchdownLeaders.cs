@@ -25,17 +25,16 @@ namespace GroupProject
             showdata();
         }
 
-        public void showdata()
+        private void showdata()
         {
 
-            dataGridView1.DataSource = conMan.Players(selectedButton);
+            dataGridView1.DataSource = conMan.TouchDownLeaders(selectedButton);
             dataGridView1.Refresh();
         }
 
-
-
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            /*
             MessageBox.Show(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             
             PlayerStats ps = new PlayerStats();
@@ -44,6 +43,7 @@ namespace GroupProject
             ps.showdata(PlayerID, TeamID);
             ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
+            */
         }
 
         private void uxRadButtSelectionChanged(object sender, EventArgs e)
@@ -54,18 +54,6 @@ namespace GroupProject
                 selectedButton = rb.Text;
                 showdata();
             }
-        }
-
-        private void uxSearchPlayerButton_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
-            dataGridView1.Update();
-        }
-
-        private void uxSearchTeamButton_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
-            dataGridView1.Update();
         }
     }
 }

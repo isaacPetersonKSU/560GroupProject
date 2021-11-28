@@ -35,10 +35,7 @@ namespace GroupProject
             this.uxRecivingTDRadButt = new System.Windows.Forms.RadioButton();
             this.uxRushingTDRadButt = new System.Windows.Forms.RadioButton();
             this.uxTotalTDRadButt = new System.Windows.Forms.RadioButton();
-            this.uxSearchTeamButton = new System.Windows.Forms.Button();
-            this.uxSearchPlayerButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.uxSearchBox = new System.Windows.Forms.TextBox();
+            this.uxDiscriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,32 +45,35 @@ namespace GroupProject
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeight = 46;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(172, 75);
+            this.dataGridView1.Location = new System.Drawing.Point(344, 52);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(1604, 888);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // uxSortLabel
             // 
             this.uxSortLabel.AutoSize = true;
-            this.uxSortLabel.Location = new System.Drawing.Point(9, 75);
-            this.uxSortLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.uxSortLabel.Location = new System.Drawing.Point(18, 144);
+            this.uxSortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uxSortLabel.Name = "uxSortLabel";
-            this.uxSortLabel.Size = new System.Drawing.Size(50, 13);
+            this.uxSortLabel.Size = new System.Drawing.Size(100, 25);
             this.uxSortLabel.TabIndex = 2;
             this.uxSortLabel.Text = "Sort By...";
             // 
             // uxPassingTDRadButt
             // 
             this.uxPassingTDRadButt.AutoSize = true;
-            this.uxPassingTDRadButt.Location = new System.Drawing.Point(12, 105);
+            this.uxPassingTDRadButt.Location = new System.Drawing.Point(24, 202);
+            this.uxPassingTDRadButt.Margin = new System.Windows.Forms.Padding(6);
             this.uxPassingTDRadButt.Name = "uxPassingTDRadButt";
-            this.uxPassingTDRadButt.Size = new System.Drawing.Size(127, 17);
+            this.uxPassingTDRadButt.Size = new System.Drawing.Size(248, 29);
             this.uxPassingTDRadButt.TabIndex = 3;
             this.uxPassingTDRadButt.TabStop = true;
             this.uxPassingTDRadButt.Text = "Passing Touchdowns";
@@ -83,9 +83,10 @@ namespace GroupProject
             // uxRecivingTDRadButt
             // 
             this.uxRecivingTDRadButt.AutoSize = true;
-            this.uxRecivingTDRadButt.Location = new System.Drawing.Point(12, 128);
+            this.uxRecivingTDRadButt.Location = new System.Drawing.Point(24, 246);
+            this.uxRecivingTDRadButt.Margin = new System.Windows.Forms.Padding(6);
             this.uxRecivingTDRadButt.Name = "uxRecivingTDRadButt";
-            this.uxRecivingTDRadButt.Size = new System.Drawing.Size(138, 17);
+            this.uxRecivingTDRadButt.Size = new System.Drawing.Size(266, 29);
             this.uxRecivingTDRadButt.TabIndex = 4;
             this.uxRecivingTDRadButt.TabStop = true;
             this.uxRecivingTDRadButt.Text = "Receiving Touchdowns";
@@ -95,9 +96,10 @@ namespace GroupProject
             // uxRushingTDRadButt
             // 
             this.uxRushingTDRadButt.AutoSize = true;
-            this.uxRushingTDRadButt.Location = new System.Drawing.Point(12, 151);
+            this.uxRushingTDRadButt.Location = new System.Drawing.Point(24, 290);
+            this.uxRushingTDRadButt.Margin = new System.Windows.Forms.Padding(6);
             this.uxRushingTDRadButt.Name = "uxRushingTDRadButt";
-            this.uxRushingTDRadButt.Size = new System.Drawing.Size(129, 17);
+            this.uxRushingTDRadButt.Size = new System.Drawing.Size(250, 29);
             this.uxRushingTDRadButt.TabIndex = 5;
             this.uxRushingTDRadButt.TabStop = true;
             this.uxRushingTDRadButt.Text = "Rushing Touchdowns";
@@ -107,61 +109,33 @@ namespace GroupProject
             // uxTotalTDRadButt
             // 
             this.uxTotalTDRadButt.AutoSize = true;
-            this.uxTotalTDRadButt.Location = new System.Drawing.Point(12, 174);
+            this.uxTotalTDRadButt.Location = new System.Drawing.Point(24, 335);
+            this.uxTotalTDRadButt.Margin = new System.Windows.Forms.Padding(6);
             this.uxTotalTDRadButt.Name = "uxTotalTDRadButt";
-            this.uxTotalTDRadButt.Size = new System.Drawing.Size(101, 17);
+            this.uxTotalTDRadButt.Size = new System.Drawing.Size(195, 29);
             this.uxTotalTDRadButt.TabIndex = 6;
             this.uxTotalTDRadButt.TabStop = true;
             this.uxTotalTDRadButt.Text = "All Touchdowns";
             this.uxTotalTDRadButt.UseVisualStyleBackColor = true;
             this.uxTotalTDRadButt.CheckedChanged += new System.EventHandler(this.uxRadButtSelectionChanged);
             // 
-            // uxSearchTeamButton
+            // uxDiscriptionLabel
             // 
-            this.uxSearchTeamButton.Location = new System.Drawing.Point(869, 27);
-            this.uxSearchTeamButton.Name = "uxSearchTeamButton";
-            this.uxSearchTeamButton.Size = new System.Drawing.Size(105, 23);
-            this.uxSearchTeamButton.TabIndex = 7;
-            this.uxSearchTeamButton.Text = "Search for Team";
-            this.uxSearchTeamButton.UseVisualStyleBackColor = true;
-            this.uxSearchTeamButton.Click += new System.EventHandler(this.uxSearchTeamButton_Click);
-            // 
-            // uxSearchPlayerButton
-            // 
-            this.uxSearchPlayerButton.Location = new System.Drawing.Point(758, 27);
-            this.uxSearchPlayerButton.Name = "uxSearchPlayerButton";
-            this.uxSearchPlayerButton.Size = new System.Drawing.Size(105, 23);
-            this.uxSearchPlayerButton.TabIndex = 8;
-            this.uxSearchPlayerButton.Text = "Search for Player";
-            this.uxSearchPlayerButton.UseVisualStyleBackColor = true;
-            this.uxSearchPlayerButton.Click += new System.EventHandler(this.uxSearchPlayerButton_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 466);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // uxSearchBox
-            // 
-            this.uxSearchBox.Location = new System.Drawing.Point(354, 29);
-            this.uxSearchBox.Name = "uxSearchBox";
-            this.uxSearchBox.Size = new System.Drawing.Size(398, 20);
-            this.uxSearchBox.TabIndex = 10;
+            this.uxDiscriptionLabel.AutoSize = true;
+            this.uxDiscriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uxDiscriptionLabel.Location = new System.Drawing.Point(806, 9);
+            this.uxDiscriptionLabel.Name = "uxDiscriptionLabel";
+            this.uxDiscriptionLabel.Size = new System.Drawing.Size(397, 37);
+            this.uxDiscriptionLabel.TabIndex = 10;
+            this.uxDiscriptionLabel.Text = "Top 50 touchdown scorers";
             // 
             // TouchdownLeaders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(986, 501);
-            this.Controls.Add(this.uxSearchBox);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.uxSearchPlayerButton);
-            this.Controls.Add(this.uxSearchTeamButton);
+            this.ClientSize = new System.Drawing.Size(1972, 963);
+            this.Controls.Add(this.uxDiscriptionLabel);
             this.Controls.Add(this.uxTotalTDRadButt);
             this.Controls.Add(this.uxRushingTDRadButt);
             this.Controls.Add(this.uxRecivingTDRadButt);
@@ -169,8 +143,9 @@ namespace GroupProject
             this.Controls.Add(this.uxSortLabel);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "TouchdownLeaders";
-            this.Text = "NFL Players";
+            this.Text = "Touchdown Leaders";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,10 +160,7 @@ namespace GroupProject
         private System.Windows.Forms.RadioButton uxRecivingTDRadButt;
         private System.Windows.Forms.RadioButton uxRushingTDRadButt;
         private System.Windows.Forms.RadioButton uxTotalTDRadButt;
-        private System.Windows.Forms.Button uxSearchTeamButton;
-        private System.Windows.Forms.Button uxSearchPlayerButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox uxSearchBox;
+        private System.Windows.Forms.Label uxDiscriptionLabel;
     }
 }
 

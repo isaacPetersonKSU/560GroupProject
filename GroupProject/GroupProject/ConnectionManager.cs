@@ -30,7 +30,7 @@ namespace GroupProject
             searchByTeamName.CommandType = CommandType.StoredProcedure;
         }
 
-        public DataTable Players(string sortBy)
+        public DataTable TouchDownLeaders(string sortBy)
         {
             getTouchdownLeaders.Parameters.Clear();
 

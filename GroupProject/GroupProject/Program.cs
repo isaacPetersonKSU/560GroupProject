@@ -18,9 +18,9 @@ namespace GroupProject
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DefaultView dv = new DefaultView(conMan);
 
-
-            Application.Run(new TouchdownLeaders(conMan));
+            Application.Run(dv);
         }
     }
 }
