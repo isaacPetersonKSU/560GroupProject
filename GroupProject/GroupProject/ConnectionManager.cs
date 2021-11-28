@@ -12,30 +12,46 @@ namespace GroupProject
     {
         public SqlConnection Connection { get; private set; }
 
-        private SqlCommand getAllPlayers;
+        private SqlCommand getTouchdownLeaders;
+        private SqlCommand searchByPlayerName;
 
         public ConnectionManager(string conStr)
         {
             Connection = new SqlConnection(conStr);
 
-            getAllPlayers = new SqlCommand("Season.usp_Players", Connection);
-            getAllPlayers.CommandType = CommandType.StoredProcedure;
+            getTouchdownLeaders = new SqlCommand("Season.usp_TouchdownLeaders", Connection);
+            getTouchdownLeaders.CommandType = CommandType.StoredProcedure;
 
+            searchByPlayerName = new SqlCommand("Season.usp_SearchPlayers");
+            searchByPlayerName.CommandType = CommandType.StoredProcedure;
         }
 
-        public DataTable Players(string sortBy, string sortDirection)
+        public DataTable Players(string sortBy)
         {
-            getAllPlayers.Parameters.Clear();
+            getTouchdownLeaders.Parameters.Clear();
 
-            SqlParameter[] pr = new SqlParameter[2];
-            pr[0] = new SqlParameter("@OrderBy", SqlDbType.VarChar);
-            pr[0].Value = sortBy;
-            pr[1] = new SqlParameter("Direction", SqlDbType.VarChar);
-            pr[1].Value = sortDirection;
+            SqlParameter pr = new SqlParameter("@OrderBy", SqlDbType.VarChar);
+            pr.Value = sortBy;
 
-            getAllPlayers.Parameters.AddRange(pr);
+            getTouchdownLeaders.Parameters.Add(pr);
 
-            SqlDataAdapter chartFiller = new SqlDataAdapter(getAllPlayers);
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTouchdownLeaders);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SearchPlayerName(string name)
+        {
+            searchByPlayerName.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@name", SqlDbType.VarChar);
+            pr.Value = name;
+
+            searchByPlayerName.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTouchdownLeaders);
 
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);

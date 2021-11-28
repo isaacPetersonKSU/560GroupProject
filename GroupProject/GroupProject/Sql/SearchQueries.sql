@@ -10,10 +10,12 @@ SELECT P.PlayerID, P.Name, T.Name AS Team, T.TeamID, P.Position
 FROM Season.Player P
 	INNER JOIN Season.Team T
 	ON P.TeamID = T.TeamID
-WHERE P.Name = @Name;
+WHERE P.Name Like @Name + '%'
+	OR P.Name Like '%' + @Name + '%'
+	OR P.Name Like '%' + @Name;
 GO
 
-EXEC Season.usp_SearchPlayers @Name = 'Davante Adams'
+EXEC Season.usp_SearchPlayers @Name = 'pat'
 GO
 
 --Ranks players by total number of touchdowns scored

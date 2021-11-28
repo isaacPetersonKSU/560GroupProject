@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Players.cs">
+    <Compile Include="SeachForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Players.Designer.cs">
-      <DependentUpon>Players.cs</DependentUpon>
+    <Compile Include="SeachForm.Designer.cs">
+      <DependentUpon>SeachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TouchdownLeaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TouchdownLeaders.Designer.cs">
+      <DependentUpon>TouchdownLeaders.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerStats.cs">
       <SubType>Form</SubType>
@@ -67,8 +73,11 @@
     <Compile Include="sortform.Designer.cs">
       <DependentUpon>sortform.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Players.resx">
-      <DependentUpon>Players.cs</DependentUpon>
+    <EmbeddedResource Include="SeachForm.resx">
+      <DependentUpon>SeachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TouchdownLeaders.resx">
+      <DependentUpon>TouchdownLeaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerStats.resx">
       <DependentUpon>PlayerStats.cs</DependentUpon>

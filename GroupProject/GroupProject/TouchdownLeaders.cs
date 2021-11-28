@@ -11,30 +11,24 @@ using System.Data.SqlClient;
 
 namespace GroupProject
 {
-    public partial class Players : Form
+    public partial class TouchdownLeaders : Form
     {
         ConnectionManager conMan;
-        string[] sortOptions;
+        string selectedButton = "All Touchdowns";
 
-        public Players(ConnectionManager cm)
+        public TouchdownLeaders(ConnectionManager cm)
         {
             conMan = cm;
-            sortOptions = new string[4];
-            sortOptions[0] = "Passing Touchdowns";
-            sortOptions[1] = "Receiving Touchdowns";
-            sortOptions[2] = "Rushing Touchdowns";
-            sortOptions[3] = "Total Touchdowns";
-
 
             InitializeComponent();
-            uxSortByComboBox.Items.AddRange(sortOptions);
-            uxSortByComboBox.SelectedIndex = 0;
+            uxTotalTDRadButt.Checked = true;
             showdata();
         }
 
         public void showdata()
         {
-            dataGridView1.DataSource = conMan.Players(uxSortByComboBox.SelectedItem.ToString(), "desc");
+
+            dataGridView1.DataSource = conMan.Players(selectedButton);
             dataGridView1.Refresh();
         }
 
@@ -50,18 +44,21 @@ namespace GroupProject
             ps.showdata(PlayerID, TeamID);
             ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
-            
-            
         }
 
-        private void uxSortByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void uxRadButtSelectionChanged(object sender, EventArgs e)
         {
-            showdata();
+            RadioButton rb = sender as RadioButton;
+            if (rb.Checked)
+            {
+                selectedButton = rb.Text;
+                showdata();
+            }
         }
     }
 }
 
-        /*
+/*
 private void touchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
 {
    sortform sf = new sortform();

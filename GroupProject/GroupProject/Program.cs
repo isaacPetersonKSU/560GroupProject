@@ -20,7 +20,7 @@ namespace GroupProject
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Application.Run(new Players(conMan));
+            Application.Run(new TouchdownLeaders(conMan));
         }
     }
 }
