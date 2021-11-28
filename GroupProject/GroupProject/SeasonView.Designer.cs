@@ -56,7 +56,8 @@ namespace GroupProject
             this.uxDataGrid.AllowUserToResizeRows = false;
             this.uxDataGrid.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxDataGrid.Location = new System.Drawing.Point(261, 81);
+            this.uxDataGrid.Location = new System.Drawing.Point(130, 42);
+            this.uxDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.uxDataGrid.MultiSelect = false;
             this.uxDataGrid.Name = "uxDataGrid";
             this.uxDataGrid.ReadOnly = true;
@@ -65,24 +66,25 @@ namespace GroupProject
             this.uxDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.uxDataGrid.RowTemplate.Height = 33;
             this.uxDataGrid.ShowEditingIcon = false;
-            this.uxDataGrid.Size = new System.Drawing.Size(840, 605);
+            this.uxDataGrid.Size = new System.Drawing.Size(420, 315);
             this.uxDataGrid.TabIndex = 0;
             this.uxDataGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.uxDataGrid_CellMouseClick);
-
             // 
             // uxSearchBox
             // 
             this.uxSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.uxSearchBox.Location = new System.Drawing.Point(525, 11);
+            this.uxSearchBox.Location = new System.Drawing.Point(262, 6);
+            this.uxSearchBox.Margin = new System.Windows.Forms.Padding(2);
             this.uxSearchBox.Name = "uxSearchBox";
-            this.uxSearchBox.Size = new System.Drawing.Size(457, 35);
+            this.uxSearchBox.Size = new System.Drawing.Size(230, 21);
             this.uxSearchBox.TabIndex = 1;
             // 
             // uxSearchButton
             // 
-            this.uxSearchButton.Location = new System.Drawing.Point(988, 10);
+            this.uxSearchButton.Location = new System.Drawing.Point(494, 5);
+            this.uxSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxSearchButton.Name = "uxSearchButton";
-            this.uxSearchButton.Size = new System.Drawing.Size(113, 42);
+            this.uxSearchButton.Size = new System.Drawing.Size(56, 22);
             this.uxSearchButton.TabIndex = 2;
             this.uxSearchButton.Text = "Search";
             this.uxSearchButton.UseVisualStyleBackColor = true;
@@ -92,9 +94,10 @@ namespace GroupProject
             // 
             this.uxPlayersRadButt.AutoSize = true;
             this.uxPlayersRadButt.Checked = true;
-            this.uxPlayersRadButt.Location = new System.Drawing.Point(32, 120);
+            this.uxPlayersRadButt.Location = new System.Drawing.Point(16, 62);
+            this.uxPlayersRadButt.Margin = new System.Windows.Forms.Padding(2);
             this.uxPlayersRadButt.Name = "uxPlayersRadButt";
-            this.uxPlayersRadButt.Size = new System.Drawing.Size(115, 29);
+            this.uxPlayersRadButt.Size = new System.Drawing.Size(59, 17);
             this.uxPlayersRadButt.TabIndex = 4;
             this.uxPlayersRadButt.TabStop = true;
             this.uxPlayersRadButt.Text = "Players";
@@ -104,18 +107,20 @@ namespace GroupProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 81);
+            this.label1.Location = new System.Drawing.Point(6, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 25);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Show...";
             // 
             // uxTeamsRadButt
             // 
             this.uxTeamsRadButt.AutoSize = true;
-            this.uxTeamsRadButt.Location = new System.Drawing.Point(32, 155);
+            this.uxTeamsRadButt.Location = new System.Drawing.Point(16, 81);
+            this.uxTeamsRadButt.Margin = new System.Windows.Forms.Padding(2);
             this.uxTeamsRadButt.Name = "uxTeamsRadButt";
-            this.uxTeamsRadButt.Size = new System.Drawing.Size(108, 29);
+            this.uxTeamsRadButt.Size = new System.Drawing.Size(57, 17);
             this.uxTeamsRadButt.TabIndex = 6;
             this.uxTeamsRadButt.Text = "Teams";
             this.uxTeamsRadButt.UseVisualStyleBackColor = true;
@@ -124,9 +129,10 @@ namespace GroupProject
             // uxGamesRadButt
             // 
             this.uxGamesRadButt.AutoSize = true;
-            this.uxGamesRadButt.Location = new System.Drawing.Point(32, 190);
+            this.uxGamesRadButt.Location = new System.Drawing.Point(16, 99);
+            this.uxGamesRadButt.Margin = new System.Windows.Forms.Padding(2);
             this.uxGamesRadButt.Name = "uxGamesRadButt";
-            this.uxGamesRadButt.Size = new System.Drawing.Size(111, 29);
+            this.uxGamesRadButt.Size = new System.Drawing.Size(58, 17);
             this.uxGamesRadButt.TabIndex = 7;
             this.uxGamesRadButt.Text = "Games";
             this.uxGamesRadButt.UseVisualStyleBackColor = true;
@@ -135,17 +141,19 @@ namespace GroupProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 252);
+            this.label2.Location = new System.Drawing.Point(6, 131);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 25);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Report Queries";
             // 
             // uxTDLButton
             // 
-            this.uxTDLButton.Location = new System.Drawing.Point(32, 297);
+            this.uxTDLButton.Location = new System.Drawing.Point(16, 154);
+            this.uxTDLButton.Margin = new System.Windows.Forms.Padding(2);
             this.uxTDLButton.Name = "uxTDLButton";
-            this.uxTDLButton.Size = new System.Drawing.Size(197, 67);
+            this.uxTDLButton.Size = new System.Drawing.Size(98, 35);
             this.uxTDLButton.TabIndex = 9;
             this.uxTDLButton.Text = "Touchdown Leaders";
             this.uxTDLButton.UseVisualStyleBackColor = true;
@@ -153,27 +161,30 @@ namespace GroupProject
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(32, 370);
+            this.button4.Location = new System.Drawing.Point(16, 192);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 67);
+            this.button4.Size = new System.Drawing.Size(98, 35);
             this.button4.TabIndex = 10;
             this.button4.Text = "Team Comparison";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(32, 443);
+            this.button5.Location = new System.Drawing.Point(16, 230);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(197, 67);
+            this.button5.Size = new System.Drawing.Size(98, 35);
             this.button5.TabIndex = 11;
             this.button5.Text = "All-purpose yardage";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(32, 516);
+            this.button6.Location = new System.Drawing.Point(16, 268);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(197, 67);
+            this.button6.Size = new System.Drawing.Size(98, 35);
             this.button6.TabIndex = 12;
             this.button6.Text = "Team averages";
             this.button6.UseVisualStyleBackColor = true;
@@ -181,23 +192,25 @@ namespace GroupProject
             // uxStartDatePicker
             // 
             this.uxStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxStartDatePicker.Location = new System.Drawing.Point(425, 14);
+            this.uxStartDatePicker.Location = new System.Drawing.Point(212, 7);
+            this.uxStartDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.uxStartDatePicker.MaxDate = this.uxEndDatePicker.Value;
-            this.uxStartDatePicker.MinDate = new System.DateTime(2020, 9, 24, 0, 0, 0, 0);
+            this.uxStartDatePicker.MinDate = new System.DateTime(2020, 9, 10, 0, 0, 0, 0);
             this.uxStartDatePicker.Name = "uxStartDatePicker";
-            this.uxStartDatePicker.Size = new System.Drawing.Size(240, 31);
+            this.uxStartDatePicker.Size = new System.Drawing.Size(122, 20);
             this.uxStartDatePicker.TabIndex = 14;
-            this.uxStartDatePicker.Value = new System.DateTime(2020, 12, 28, 0, 0, 0, 0);
+            this.uxStartDatePicker.Value = new System.DateTime(2020, 9, 10, 0, 0, 0, 0);
             this.uxStartDatePicker.Visible = false;
             // 
             // uxEndDatePicker
             // 
             this.uxEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxEndDatePicker.Location = new System.Drawing.Point(709, 14);
+            this.uxEndDatePicker.Location = new System.Drawing.Point(354, 7);
+            this.uxEndDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.uxEndDatePicker.MaxDate = new System.DateTime(2021, 1, 3, 0, 0, 0, 0);
             this.uxEndDatePicker.MinDate = new System.DateTime(2020, 9, 24, 0, 0, 0, 0);
             this.uxEndDatePicker.Name = "uxEndDatePicker";
-            this.uxEndDatePicker.Size = new System.Drawing.Size(240, 31);
+            this.uxEndDatePicker.Size = new System.Drawing.Size(122, 20);
             this.uxEndDatePicker.TabIndex = 13;
             this.uxEndDatePicker.Value = new System.DateTime(2020, 12, 28, 0, 0, 0, 0);
             this.uxEndDatePicker.Visible = false;
@@ -205,18 +218,19 @@ namespace GroupProject
             // uxDateLabel2
             // 
             this.uxDateLabel2.AutoSize = true;
-            this.uxDateLabel2.Location = new System.Drawing.Point(673, 17);
+            this.uxDateLabel2.Location = new System.Drawing.Point(336, 9);
+            this.uxDateLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxDateLabel2.Name = "uxDateLabel2";
-            this.uxDateLabel2.Size = new System.Drawing.Size(30, 25);
+            this.uxDateLabel2.Size = new System.Drawing.Size(16, 13);
             this.uxDateLabel2.TabIndex = 16;
             this.uxDateLabel2.Text = "to";
             this.uxDateLabel2.Visible = false;
             // 
             // SeasonView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 698);
+            this.ClientSize = new System.Drawing.Size(558, 363);
             this.Controls.Add(this.uxDateLabel2);
             this.Controls.Add(this.uxStartDatePicker);
             this.Controls.Add(this.uxEndDatePicker);
@@ -232,8 +246,11 @@ namespace GroupProject
             this.Controls.Add(this.uxSearchButton);
             this.Controls.Add(this.uxSearchBox);
             this.Controls.Add(this.uxDataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "SeasonView";
-            this.Text = "DefaultView";
+            this.Text = "NFL Stats";
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

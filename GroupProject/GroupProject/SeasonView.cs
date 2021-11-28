@@ -108,7 +108,21 @@ namespace GroupProject
             {
                 case DVState.Players:
                     int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    new PlayerStats(/*conMan, id*/).Show();
+                    PlayerStats ps = new PlayerStats(/*conMan, id*/);
+                    ps.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Stats";
+                    ps.Show();
+                    break;
+                case DVState.Games:
+                    GameStats gs = new GameStats(/*conMan*/);
+                    gs.Text = uxDataGrid.CurrentRow.Cells[1].Value.ToString() +" VS " + uxDataGrid.CurrentRow.Cells[2].Value.ToString() + " Stats";
+                    gs.HomeLabelText = "Home Team: " + uxDataGrid.CurrentRow.Cells[1].Value.ToString();
+                    gs.AwayLabelText = "Away Team: " + uxDataGrid.CurrentRow.Cells[2].Value.ToString();
+                    gs.Show();
+                    break;
+                case DVState.Teams:
+                    TeamStats ts = new TeamStats(/*conMan*/);
+                    ts.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Stats";
+                    ts.Show();
                     break;
 
             }
