@@ -72,7 +72,6 @@ namespace GroupProject
                 {
                     case "Games":
                         uxSearchBox.Visible = false;
-                        uxSearchButton.Visible = false;
                         uxStartDatePicker.Visible = true;
                         uxEndDatePicker.Visible = true;
                         uxDateLabel2.Visible = true;
@@ -80,7 +79,6 @@ namespace GroupProject
                         break;
                     case "Players":
                         uxSearchBox.Visible = true;
-                        uxSearchButton.Visible = true;
                         uxStartDatePicker.Visible = false;
                         uxEndDatePicker.Visible = false;
                         uxDateLabel2.Visible = false;
@@ -88,7 +86,6 @@ namespace GroupProject
                         break;
                     case "Teams":
                         uxSearchBox.Visible = true;
-                        uxSearchButton.Visible = true;
                         uxStartDatePicker.Visible = false;
                         uxEndDatePicker.Visible = false;
                         uxDateLabel2.Visible = false;
@@ -102,13 +99,6 @@ namespace GroupProject
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             fillTable();
-        }
-
-        private void uxDatePicker_ValueChanged(object sender, EventArgs e)
-        {
-            fillTable();
-            uxStartDatePicker.MaxDate = uxEndDatePicker.Value;
-            uxEndDatePicker.MinDate = uxStartDatePicker.Value;
         }
     }
 }

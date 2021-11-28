@@ -176,33 +176,31 @@
             // uxStartDatePicker
             // 
             this.uxStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxStartDatePicker.Location = new System.Drawing.Point(567, 12);
+            this.uxStartDatePicker.Location = new System.Drawing.Point(425, 14);
             this.uxStartDatePicker.MaxDate = this.uxEndDatePicker.Value;
             this.uxStartDatePicker.MinDate = new System.DateTime(2020, 9, 24, 0, 0, 0, 0);
             this.uxStartDatePicker.Name = "uxStartDatePicker";
             this.uxStartDatePicker.Size = new System.Drawing.Size(240, 31);
             this.uxStartDatePicker.TabIndex = 14;
-            this.uxStartDatePicker.Value = new System.DateTime(2020, 9, 24, 0, 0, 0, 0);
+            this.uxStartDatePicker.Value = new System.DateTime(2020, 12, 28, 0, 0, 0, 0);
             this.uxStartDatePicker.Visible = false;
-            this.uxStartDatePicker.ValueChanged += new System.EventHandler(this.uxDatePicker_ValueChanged);
             // 
             // uxEndDatePicker
             // 
             this.uxEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxEndDatePicker.Location = new System.Drawing.Point(861, 11);
-            this.uxEndDatePicker.MaxDate = new System.DateTime(2020, 12, 28, 0, 0, 0, 0);
-            this.uxEndDatePicker.MinDate = this.uxStartDatePicker.Value;
+            this.uxEndDatePicker.Location = new System.Drawing.Point(709, 14);
+            this.uxEndDatePicker.MaxDate = new System.DateTime(2021, 1, 3, 0, 0, 0, 0);
+            this.uxEndDatePicker.MinDate = new System.DateTime(2020, 9, 24, 0, 0, 0, 0);
             this.uxEndDatePicker.Name = "uxEndDatePicker";
             this.uxEndDatePicker.Size = new System.Drawing.Size(240, 31);
             this.uxEndDatePicker.TabIndex = 13;
             this.uxEndDatePicker.Value = new System.DateTime(2020, 12, 28, 0, 0, 0, 0);
             this.uxEndDatePicker.Visible = false;
-            this.uxEndDatePicker.ValueChanged += new System.EventHandler(this.uxDatePicker_ValueChanged);
             // 
             // uxDateLabel2
             // 
             this.uxDateLabel2.AutoSize = true;
-            this.uxDateLabel2.Location = new System.Drawing.Point(825, 16);
+            this.uxDateLabel2.Location = new System.Drawing.Point(673, 17);
             this.uxDateLabel2.Name = "uxDateLabel2";
             this.uxDateLabel2.Size = new System.Drawing.Size(30, 25);
             this.uxDateLabel2.TabIndex = 16;
