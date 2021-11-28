@@ -41,8 +41,18 @@ namespace GroupProject
 
         private void fillTable()
         {
-
-            uxDataGrid.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
+            switch (state)
+            {
+                case DVState.Players:
+                    uxDataGrid.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
+                    break;
+                case DVState.Teams:
+                    uxDataGrid.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
+                    break;
+                case DVState.Games:
+                    break;
+            }
+            
             uxDataGrid.Refresh();
         }
 
@@ -57,22 +67,19 @@ namespace GroupProject
             if (rb.Checked)
             {
                 uxSearchBox.Clear();
-                if (rb.Text == "Games")
+                switch (rb.Text)
                 {
-                    uxStartDatePicker.Enabled = true;
-                    uxEndDatePicker.Enabled = true;
-                    
-                    uxSearchBox.Enabled = false;
-                    uxSearchButton.Enabled = false;
+                    case "Games":
+                        state = DVState.Games;
+                        break;
+                    case "Players":
+                        state = DVState.Players;
+                        break;
+                    case "Teams":
+                        state = DVState.Teams;
+                        break;
                 }
-                else
-                {
-                    uxStartDatePicker.Enabled = false;
-                    uxEndDatePicker.Enabled = false;
-
-                    uxSearchBox.Enabled = true;
-                    uxSearchButton.Enabled = true;
-                }
+                fillTable();
             }
         }
 

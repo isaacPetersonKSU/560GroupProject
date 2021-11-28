@@ -42,27 +42,34 @@
             this.button6 = new System.Windows.Forms.Button();
             this.uxEndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxStartDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.uxDateLable1 = new System.Windows.Forms.Label();
             this.uxDateLabel2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // uxDataGrid
             // 
+            this.uxDataGrid.AllowUserToAddRows = false;
+            this.uxDataGrid.AllowUserToDeleteRows = false;
+            this.uxDataGrid.AllowUserToResizeRows = false;
+            this.uxDataGrid.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.uxDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uxDataGrid.Location = new System.Drawing.Point(261, 57);
+            this.uxDataGrid.MultiSelect = false;
             this.uxDataGrid.Name = "uxDataGrid";
+            this.uxDataGrid.ReadOnly = true;
             this.uxDataGrid.RowHeadersWidth = 82;
+            this.uxDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.uxDataGrid.RowTemplate.Height = 33;
+            this.uxDataGrid.ShowEditingIcon = false;
             this.uxDataGrid.Size = new System.Drawing.Size(1005, 629);
             this.uxDataGrid.TabIndex = 0;
             // 
             // uxSearchBox
             // 
             this.uxSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.uxSearchBox.Location = new System.Drawing.Point(825, 12);
+            this.uxSearchBox.Location = new System.Drawing.Point(769, 12);
             this.uxSearchBox.Name = "uxSearchBox";
-            this.uxSearchBox.Size = new System.Drawing.Size(319, 35);
+            this.uxSearchBox.Size = new System.Drawing.Size(375, 35);
             this.uxSearchBox.TabIndex = 1;
             // 
             // uxSearchButton
@@ -169,7 +176,7 @@
             // 
             this.uxEndDatePicker.Enabled = false;
             this.uxEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxEndDatePicker.Location = new System.Drawing.Point(619, 13);
+            this.uxEndDatePicker.Location = new System.Drawing.Point(505, 13);
             this.uxEndDatePicker.Name = "uxEndDatePicker";
             this.uxEndDatePicker.Size = new System.Drawing.Size(200, 31);
             this.uxEndDatePicker.TabIndex = 13;
@@ -178,30 +185,22 @@
             // 
             this.uxStartDatePicker.Enabled = false;
             this.uxStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxStartDatePicker.Location = new System.Drawing.Point(359, 13);
+            this.uxStartDatePicker.Location = new System.Drawing.Point(261, 13);
+            this.uxStartDatePicker.MaxDate = new System.DateTime(2021, 11, 28, 0, 0, 0, 0);
             this.uxStartDatePicker.Name = "uxStartDatePicker";
             this.uxStartDatePicker.Size = new System.Drawing.Size(200, 31);
             this.uxStartDatePicker.TabIndex = 14;
-            // 
-            // uxDateLable1
-            // 
-            this.uxDateLable1.AutoSize = true;
-            this.uxDateLable1.Enabled = false;
-            this.uxDateLable1.Location = new System.Drawing.Point(258, 16);
-            this.uxDateLable1.Name = "uxDateLable1";
-            this.uxDateLable1.Size = new System.Drawing.Size(95, 25);
-            this.uxDateLable1.TabIndex = 15;
-            this.uxDateLable1.Text = "Between";
+            this.uxStartDatePicker.Value = new System.DateTime(2021, 11, 28, 0, 0, 0, 0);
             // 
             // uxDateLabel2
             // 
             this.uxDateLabel2.AutoSize = true;
             this.uxDateLabel2.Enabled = false;
-            this.uxDateLabel2.Location = new System.Drawing.Point(565, 16);
+            this.uxDateLabel2.Location = new System.Drawing.Point(469, 16);
             this.uxDateLabel2.Name = "uxDateLabel2";
-            this.uxDateLabel2.Size = new System.Drawing.Size(48, 25);
+            this.uxDateLabel2.Size = new System.Drawing.Size(30, 25);
             this.uxDateLabel2.TabIndex = 16;
-            this.uxDateLabel2.Text = "and";
+            this.uxDateLabel2.Text = "to";
             // 
             // DefaultView
             // 
@@ -209,7 +208,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 698);
             this.Controls.Add(this.uxDateLabel2);
-            this.Controls.Add(this.uxDateLable1);
             this.Controls.Add(this.uxStartDatePicker);
             this.Controls.Add(this.uxEndDatePicker);
             this.Controls.Add(this.button6);
@@ -248,7 +246,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DateTimePicker uxEndDatePicker;
         private System.Windows.Forms.DateTimePicker uxStartDatePicker;
-        private System.Windows.Forms.Label uxDateLable1;
         private System.Windows.Forms.Label uxDateLabel2;
     }
 }

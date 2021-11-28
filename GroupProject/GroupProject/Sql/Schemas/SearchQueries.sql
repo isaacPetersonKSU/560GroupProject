@@ -6,7 +6,7 @@ DROP PROCEDURE IF EXISTS Season.usp_SearchPlayers;
 GO
 CREATE PROCEDURE Season.usp_SearchPlayers @Name NVARCHAR(64)
 AS
-SELECT P.Name, T.Name AS Team, P.Position, P.PlayerID, 
+SELECT P.Name, T.Name AS Team, P.Position, P.PlayerID
 FROM Season.Player P
 	INNER JOIN Season.Team T
 	ON P.TeamID = T.TeamID
@@ -21,10 +21,8 @@ DROP PROCEDURE IF EXISTS Season.usp_SearchTeams;
 GO
 CREATE PROCEDURE Season.usp_SearchTeams @Name NVARCHAR(64)
 AS
-SELECT P.PlayerID, P.Name, T.Name AS Team, T.TeamID, P.Position
-FROM Season.Player P
-	INNER JOIN Season.Team T
-	ON P.TeamID = T.TeamID
+SELECT T.Name AS Team, T.TeamID, T.Abbreviation
+FROM Season.Team T
 WHERE T.Name Like @Name + '%'
 	OR T.Name Like '%' + @Name + '%'
 	OR T.Name Like '%' + @Name
