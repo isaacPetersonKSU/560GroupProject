@@ -21,4 +21,4 @@ C:\Users\isaac\Source\Repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupP
 C:\Users\isaac\Source\Repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.exe
 C:\Users\isaac\Source\Repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
 C:\Users\isaac\source\repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.TouchdownLeaders.resources
-C:\Users\isaac\Source\Repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.DefaultView.resources
+C:\Users\isaac\Source\Repos\isaacPetersonKSU\560GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.SeasonView.resources

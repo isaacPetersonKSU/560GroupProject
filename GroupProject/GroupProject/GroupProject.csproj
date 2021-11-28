@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultView.cs">
+    <Compile Include="SeasonView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DefaultView.Designer.cs">
-      <DependentUpon>DefaultView.cs</DependentUpon>
+    <Compile Include="SeasonView.Designer.cs">
+      <DependentUpon>SeasonView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerView.Designer.cs">
+      <DependentUpon>PlayerView.cs</DependentUpon>
     </Compile>
     <Compile Include="TouchdownLeaders.cs">
       <SubType>Form</SubType>
@@ -67,8 +73,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConnectionManager.cs" />
-    <EmbeddedResource Include="DefaultView.resx">
-      <DependentUpon>DefaultView.cs</DependentUpon>
+    <EmbeddedResource Include="SeasonView.resx">
+      <DependentUpon>SeasonView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TouchdownLeaders.resx">
       <DependentUpon>TouchdownLeaders.cs</DependentUpon>

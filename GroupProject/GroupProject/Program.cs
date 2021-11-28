@@ -18,7 +18,7 @@ namespace GroupProject
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DefaultView dv = new DefaultView(conMan);
+            SeasonView dv = new SeasonView(conMan);
 
             Application.Run(dv);
         }

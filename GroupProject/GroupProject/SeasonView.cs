@@ -17,15 +17,17 @@ namespace GroupProject
         Games
     }
 
-    public partial class DefaultView : Form
+    public partial class SeasonView : Form
     {
         private DVState state;
         private ConnectionManager conMan;
 
-        public DefaultView(ConnectionManager cm)
+        public SeasonView(ConnectionManager cm)
         {
             conMan = cm;
             InitializeComponent();
+            uxDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             showPlayers();
         }
 
@@ -46,7 +48,8 @@ namespace GroupProject
                     uxDataGrid.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
                     break;
                 case DVState.Games:
-                    uxDataGrid.DataSource = conMan.AllGames();
+                    uxDataGrid.DataSource = conMan.AllGames
+                        (uxStartDatePicker.Value, uxEndDatePicker.Value);
                     break;
             }
             
@@ -64,19 +67,31 @@ namespace GroupProject
             if (rb.Checked)
             {
                 uxSearchBox.Clear();
-                uxSearchBox.Enabled = true;
-                uxSearchButton.Enabled = true;
+                
                 switch (rb.Text)
                 {
                     case "Games":
-                        uxSearchBox.Enabled = false;
-                        uxSearchButton.Enabled = false;
+                        uxSearchBox.Visible = false;
+                        uxSearchButton.Visible = false;
+                        uxStartDatePicker.Visible = true;
+                        uxEndDatePicker.Visible = true;
+                        uxDateLabel2.Visible = true;
                         state = DVState.Games;
                         break;
                     case "Players":
+                        uxSearchBox.Visible = true;
+                        uxSearchButton.Visible = true;
+                        uxStartDatePicker.Visible = false;
+                        uxEndDatePicker.Visible = false;
+                        uxDateLabel2.Visible = false;
                         state = DVState.Players;
                         break;
                     case "Teams":
+                        uxSearchBox.Visible = true;
+                        uxSearchButton.Visible = true;
+                        uxStartDatePicker.Visible = false;
+                        uxEndDatePicker.Visible = false;
+                        uxDateLabel2.Visible = false;
                         state = DVState.Teams;
                         break;
                 }
@@ -89,9 +104,11 @@ namespace GroupProject
             fillTable();
         }
 
-        private void uxDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void uxDatePicker_ValueChanged(object sender, EventArgs e)
         {
-
+            fillTable();
+            uxStartDatePicker.MaxDate = uxEndDatePicker.Value;
+            uxEndDatePicker.MinDate = uxStartDatePicker.Value;
         }
     }
 }

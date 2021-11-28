@@ -82,8 +82,16 @@ namespace GroupProject
             return dt;
         }
 
-        public DataTable AllGames()
+        public DataTable AllGames(DateTime start, DateTime end)
         {
+            getAllGames.Parameters.Clear();
+            SqlParameter[] pr = new SqlParameter[2];
+            pr[0] = new SqlParameter("@StartDate", SqlDbType.Date);
+            pr[0].Value = start.ToString();
+            pr[1] = new SqlParameter("@EndDate", SqlDbType.Date);
+            pr[1].Value = end.ToString();
+
+            getAllGames.Parameters.AddRange(pr);
             SqlDataAdapter chartFiller = new SqlDataAdapter(getAllGames);
 
             DataTable dt = new DataTable();
