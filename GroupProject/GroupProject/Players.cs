@@ -14,71 +14,84 @@ namespace GroupProject
     public partial class Players : Form
     {
         ConnectionManager conMan;
-        //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrimaryData;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False");
-        //SqlDataAdapter adpt;
-        //DataTable dt;
+        string[] sortOptions;
+
         public Players(ConnectionManager cm)
         {
             conMan = cm;
+            sortOptions = new string[4];
+            sortOptions[0] = "Passing Touchdowns";
+            sortOptions[1] = "Receiving Touchdowns";
+            sortOptions[2] = "Rushing Touchdowns";
+            sortOptions[3] = "Total Touchdowns";
+
+
             InitializeComponent();
+            uxSortByComboBox.Items.AddRange(sortOptions);
+            uxSortByComboBox.SelectedIndex = 0;
             showdata();
         }
 
         public void showdata()
         {
-            dataGridView1.DataSource = conMan.Players("TotalTDs", "desc");
-            /*
-            string sqltext = @"Select p.PlayerID, p.[Name] as Player, p.Position, T.[Name] as TeamName, p.TeamID From Season.Player P inner join Season.Team T ON T.TeamID = P.TeamID;";
-            //SqlCommand mycmd = new SqlCommand("PlayerList", con);
-            //mycmd.CommandType = CommandType.StoredProcedure;
-            adpt = new SqlDataAdapter(sqltext, con);
-            dt = new DataTable();
-            adpt.Fill(dt);
-            dataGridView1.DataSource = dt;
-            */
+            dataGridView1.DataSource = conMan.Players(uxSortByComboBox.SelectedItem.ToString(), "desc");
+            dataGridView1.Refresh();
         }
+
+
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            MessageBox.Show(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            
             PlayerStats ps = new PlayerStats();
-            int PlayerID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            int PlayerID = 44;
             int TeamID = (int)dataGridView1.CurrentRow.Cells[4].Value;
             ps.showdata(PlayerID, TeamID);
             ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
+            
+            
         }
 
-
-        private void touchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void uxSortByComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sortform sf = new sortform();
-            sf.Text = "Total Touchdown Leaders";
-            sf.totaltouchdownleaders();
-            sf.ShowDialog();
-        }
-
-        private void passingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sortform sf = new sortform();
-            sf.Text = "Passing Touchdown Leaders";
-            sf.passingtouchdownleaders();
-            sf.ShowDialog();
-        }
-
-        private void receivingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sortform sf = new sortform();
-            sf.Text = "Receiving Touchdown Leaders";
-            sf.receivingtouchdownleaders();
-            sf.ShowDialog();
-        }
-
-        private void rushingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sortform sf = new sortform();
-            sf.Text = "Rushing Touchdown Leaders";
-            sf.rushingtouchdownleaders();
-            sf.ShowDialog();
+            showdata();
         }
     }
 }
+
+        /*
+private void touchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
+{
+   sortform sf = new sortform();
+   sf.Text = "Total Touchdown Leaders";
+   sf.totaltouchdownleaders();
+   sf.ShowDialog();
+}
+
+private void passingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
+{
+   sortform sf = new sortform();
+   sf.Text = "Passing Touchdown Leaders";
+   sf.passingtouchdownleaders();
+   sf.ShowDialog();
+}
+
+private void receivingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
+{
+   sortform sf = new sortform();
+   sf.Text = "Receiving Touchdown Leaders";
+   sf.receivingtouchdownleaders();
+   sf.ShowDialog();
+}
+
+private void rushingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
+{
+   sortform sf = new sortform();
+   sf.Text = "Rushing Touchdown Leaders";
+   sf.rushingtouchdownleaders();
+   sf.ShowDialog();
+}
+*/
+

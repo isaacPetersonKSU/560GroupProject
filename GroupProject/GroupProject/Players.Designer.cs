@@ -30,88 +30,73 @@ namespace GroupProject
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.sortPlayersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.touchdownLeadersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.passingTouchdownLeadersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receivingTouchdownLeadersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rushingTouchdownLeadersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uxSortByComboBox = new System.Windows.Forms.ComboBox();
+            this.uxSortLabel = new System.Windows.Forms.Label();
+            this.uxSearchBox = new System.Windows.Forms.TextBox();
+            this.uxSearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(172, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 355);
+            this.dataGridView1.RowHeadersWidth = 82;
+            this.dataGridView1.Size = new System.Drawing.Size(802, 450);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // menuStrip1
+            // uxSortByComboBox
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortPlayersToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "uxMenuStrip";
+            this.uxSortByComboBox.FormattingEnabled = true;
+            this.uxSortByComboBox.Location = new System.Drawing.Point(14, 27);
+            this.uxSortByComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.uxSortByComboBox.Name = "uxSortByComboBox";
+            this.uxSortByComboBox.Size = new System.Drawing.Size(146, 21);
+            this.uxSortByComboBox.TabIndex = 1;
+            this.uxSortByComboBox.SelectedIndexChanged += new System.EventHandler(this.uxSortByComboBox_SelectedIndexChanged);
             // 
-            // sortPlayersToolStripMenuItem
+            // uxSortLabel
             // 
-            this.sortPlayersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.touchdownLeadersToolStripMenuItem,
-            this.passingTouchdownLeadersToolStripMenuItem,
-            this.receivingTouchdownLeadersToolStripMenuItem,
-            this.rushingTouchdownLeadersToolStripMenuItem});
-            this.sortPlayersToolStripMenuItem.Name = "sortPlayersToolStripMenuItem";
-            this.sortPlayersToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.sortPlayersToolStripMenuItem.Text = "Sort Players";
+            this.uxSortLabel.AutoSize = true;
+            this.uxSortLabel.Location = new System.Drawing.Point(11, 9);
+            this.uxSortLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.uxSortLabel.Name = "uxSortLabel";
+            this.uxSortLabel.Size = new System.Drawing.Size(50, 13);
+            this.uxSortLabel.TabIndex = 2;
+            this.uxSortLabel.Text = "Sort By...";
             // 
-            // touchdownLeadersToolStripMenuItem
+            // uxSearchBox
             // 
-            this.touchdownLeadersToolStripMenuItem.Name = "touchdownLeadersToolStripMenuItem";
-            this.touchdownLeadersToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.touchdownLeadersToolStripMenuItem.Text = "Total Touchdown Leaders";
-            this.touchdownLeadersToolStripMenuItem.Click += new System.EventHandler(this.touchdownLeadersToolStripMenuItem_Click);
+            this.uxSearchBox.Location = new System.Drawing.Point(13, 108);
+            this.uxSearchBox.Name = "uxSearchBox";
+            this.uxSearchBox.Size = new System.Drawing.Size(147, 20);
+            this.uxSearchBox.TabIndex = 3;
             // 
-            // passingTouchdownLeadersToolStripMenuItem
+            // uxSearchButton
             // 
-            this.passingTouchdownLeadersToolStripMenuItem.Name = "passingTouchdownLeadersToolStripMenuItem";
-            this.passingTouchdownLeadersToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.passingTouchdownLeadersToolStripMenuItem.Text = "Passing Touchdown Leaders";
-            this.passingTouchdownLeadersToolStripMenuItem.Click += new System.EventHandler(this.passingTouchdownLeadersToolStripMenuItem_Click);
-            // 
-            // receivingTouchdownLeadersToolStripMenuItem
-            // 
-            this.receivingTouchdownLeadersToolStripMenuItem.Name = "receivingTouchdownLeadersToolStripMenuItem";
-            this.receivingTouchdownLeadersToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.receivingTouchdownLeadersToolStripMenuItem.Text = "Receiving Touchdown Leaders";
-            this.receivingTouchdownLeadersToolStripMenuItem.Click += new System.EventHandler(this.receivingTouchdownLeadersToolStripMenuItem_Click);
-            // 
-            // rushingTouchdownLeadersToolStripMenuItem
-            // 
-            this.rushingTouchdownLeadersToolStripMenuItem.Name = "rushingTouchdownLeadersToolStripMenuItem";
-            this.rushingTouchdownLeadersToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.rushingTouchdownLeadersToolStripMenuItem.Text = "Rushing Touchdown Leaders";
-            this.rushingTouchdownLeadersToolStripMenuItem.Click += new System.EventHandler(this.rushingTouchdownLeadersToolStripMenuItem_Click);
+            this.uxSearchButton.Location = new System.Drawing.Point(48, 134);
+            this.uxSearchButton.Name = "uxSearchButton";
+            this.uxSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.uxSearchButton.TabIndex = 4;
+            this.uxSearchButton.Text = "Search";
+            this.uxSearchButton.UseVisualStyleBackColor = true;
             // 
             // Players
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(544, 384);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(986, 501);
+            this.Controls.Add(this.uxSearchButton);
+            this.Controls.Add(this.uxSearchBox);
+            this.Controls.Add(this.uxSortLabel);
+            this.Controls.Add(this.uxSortByComboBox);
             this.Controls.Add(this.dataGridView1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Players";
             this.Text = "NFL Players";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,12 +105,10 @@ namespace GroupProject
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sortPlayersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem touchdownLeadersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem passingTouchdownLeadersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem receivingTouchdownLeadersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rushingTouchdownLeadersToolStripMenuItem;
+        private System.Windows.Forms.ComboBox uxSortByComboBox;
+        private System.Windows.Forms.Label uxSortLabel;
+        private System.Windows.Forms.TextBox uxSearchBox;
+        private System.Windows.Forms.Button uxSearchButton;
     }
 }
 

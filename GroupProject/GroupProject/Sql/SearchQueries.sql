@@ -1,53 +1,67 @@
 USE PrimaryData;
 
 
+--Searches players by name
+DROP PROCEDURE IF EXISTS Season.usp_SearchPlayers;
+GO
+CREATE PROCEDURE Season.usp_SearchPlayers @Name NVARCHAR(64)
+AS
+SELECT P.PlayerID, P.Name, T.Name AS Team, T.TeamID, P.Position
+FROM Season.Player P
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+WHERE P.Name = @Name;
+GO
+
+EXEC Season.usp_SearchPlayers @Name = 'Davante Adams'
+GO
+
 --Ranks players by total number of touchdowns scored
 DROP PROCEDURE IF EXISTS Season.usp_Players;
 GO
-CREATE PROCEDURE Season.usp_Players @OrderBy VARCHAR(16), @Direction VARCHAR(4)
+CREATE PROCEDURE Season.usp_Players @OrderBy VARCHAR(64), @Direction VARCHAR(4)
 AS
-	WITH cte_Players (Name, Team, PassingTDs, ReceivingTDs, RushingTDs, TotalTDs)
+	WITH cte_Players (Name, Team, Position, PassingTouchdowns, 
+		ReceivingTouchdowns, RushingTouchdowns, TotalTouchdowns)
 	AS 
 	(
-		SELECT P.Name, T.Name AS Team,
-		SUM(PG.PassingTouchdowns) AS PassingTDs,
-		SUM(PG.ReceivingTouchdowns) AS ReceivingTDs,
-		SUM(PG.RushingTouchdowns) AS RushingTDs,
+		SELECT P.Name, T.Name AS Team, P.Position,
+		SUM(PG.PassingTouchdowns) AS PassingTouchdowns,
+		SUM(PG.ReceivingTouchdowns) AS ReceivingTouchdowns,
+		SUM(PG.RushingTouchdowns) AS RushingTouchdowns,
 		SUM(PG.PassingTouchdowns) + SUM(PG.ReceivingTouchdowns)
-			+ SUM(PG.RushingTouchdowns) AS TotalTDs
+			+ SUM(PG.RushingTouchdowns) AS TotalTouchdowns
 		FROM Season.Player P
 			INNER JOIN Season.PlayerGame PG
 			ON P.PlayerID = PG.PlayerID
 			INNER JOIN Season.Team T
 			ON P.TeamID = T.TeamID
-		GROUP BY P.Name, T.Name
+		GROUP BY P.Name, T.Name, P.Position
 	)
 
-SELECT *
+SELECT Name, Team, Position, PassingTouchdowns, 
+		ReceivingTouchdowns, RushingTouchdowns, TotalTouchdowns
 FROM cte_Players P
-GROUP BY P.Name, P.Team, PassingTDs, P.ReceivingTDs, P.RushingTDs, P.TotalTDs
-ORDER BY 
+GROUP BY Name, Team, Position, PassingTouchdowns, ReceivingTouchdowns, 
+	RushingTouchdowns, TotalTouchdowns
+ORDER BY
 	CASE WHEN @Direction = 'asc' THEN
 		CASE 
-			WHEN @OrderBy = 'team' THEN Team
-			WHEN @OrderBy = 'ef' THEN P.PassingTDs
-			WHEN @OrderBy = 'passingTDs' THEN PassingTDs
-			WHEN @OrderBy = 'ReceivingTDs' THEN ReceivingTDs
-			WHEN @OrderBy = 'RushingTDs' THEN RushingTDs
-			WHEN @OrderBy = 'TotalTDs' THEN TotalTDs
-			ELSE Name
+			WHEN @OrderBy = 'Passing Touchdowns' THEN PassingTouchdowns
+			WHEN @OrderBy = 'Receiving Touchdowns' THEN ReceivingTouchdowns
+			WHEN @OrderBy = 'Rushing Touchdowns' THEN RushingTouchdowns
+			WHEN @OrderBy = 'Total Touchdowns' THEN TotalTouchdowns
 		END
 	END ASC,
 	CASE WHEN @Direction = 'desc' THEN
 		CASE 
-			WHEN @OrderBy = 'team' THEN Team
-			WHEN @OrderBy = 'passingTDs' THEN PassingTDs
-			WHEN @OrderBy = 'ReceivingTDs' THEN ReceivingTDs
-			WHEN @OrderBy = 'RushingTDs' THEN RushingTDs
-			WHEN @OrderBy = 'TotalTDs' THEN TotalTDs
-			ELSE Name
+			WHEN @OrderBy = 'passing Touchdowns' THEN PassingTouchdowns
+			WHEN @OrderBy = 'Receiving Touchdowns' THEN ReceivingTouchdowns
+			WHEN @OrderBy = 'Rushing Touchdowns' THEN RushingTouchdowns
+			WHEN @OrderBy = 'Total Touchdowns' THEN TotalTouchdowns
 		END
 	END DESC
-
 GO
-EXEC Season.usp_Players @OrderBy = N'rushingTDs', @Direction = 'desc'
+
+EXEC Season.usp_Players @OrderBy = 'Receiving Touchdowns', @Direction = 'desc'
+GO
