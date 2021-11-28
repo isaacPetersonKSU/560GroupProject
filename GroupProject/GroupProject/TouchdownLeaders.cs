@@ -34,7 +34,7 @@ namespace GroupProject
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+
             PlayerStats ps = new PlayerStats();
             int PlayerID = 44;
             int TeamID = (int)dataGridView1.CurrentRow.Cells[4].Value;
