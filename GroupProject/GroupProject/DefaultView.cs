@@ -10,17 +10,24 @@ using System.Windows.Forms;
 
 namespace GroupProject
 {
+    public enum DVState
+    {
+        Players,
+        Teams,
+        Games
+    }
+
     public partial class DefaultView : Form
     {
-        private ConnectionManager conMan;
+        private DVState state;
 
-        private TouchdownLeaders tdl;
+        private ConnectionManager conMan;
 
 
         public DefaultView(ConnectionManager cm)
         {
             conMan = cm;
-            tdl = new TouchdownLeaders(conMan);
+
 
             InitializeComponent();
             showPlayers();
@@ -32,20 +39,46 @@ namespace GroupProject
             uxDataGrid.Refresh();
         }
 
-        private void showTeams()
+        private void fillTable()
         {
+
             uxDataGrid.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
             uxDataGrid.Refresh();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            showTeams();
-        }
-
         private void uxTDLButton_Click(object sender, EventArgs e)
         {
-            tdl.Show();
+            new TouchdownLeaders(conMan).Show();
+        }
+
+        private void uxRadButts_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb.Checked)
+            {
+                uxSearchBox.Clear();
+                if (rb.Text == "Games")
+                {
+                    uxStartDatePicker.Enabled = true;
+                    uxEndDatePicker.Enabled = true;
+                    
+                    uxSearchBox.Enabled = false;
+                    uxSearchButton.Enabled = false;
+                }
+                else
+                {
+                    uxStartDatePicker.Enabled = false;
+                    uxEndDatePicker.Enabled = false;
+
+                    uxSearchBox.Enabled = true;
+                    uxSearchButton.Enabled = true;
+                }
+            }
+        }
+
+        private void uxSearchButton_Click(object sender, EventArgs e)
+        {
+            fillTable();
         }
     }
 }

@@ -144,6 +144,7 @@ namespace GroupProject
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "TouchdownLeaders";
             this.Text = "Touchdown Leaders";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
