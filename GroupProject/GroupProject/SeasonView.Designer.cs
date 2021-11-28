@@ -1,4 +1,7 @@
-﻿namespace GroupProject
+﻿using System;
+using System.Windows.Forms;
+
+namespace GroupProject
 {
     partial class SeasonView
     {
@@ -64,6 +67,8 @@
             this.uxDataGrid.ShowEditingIcon = false;
             this.uxDataGrid.Size = new System.Drawing.Size(840, 605);
             this.uxDataGrid.TabIndex = 0;
+            this.uxDataGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.uxDataGrid_CellMouseClick);
+
             // 
             // uxSearchBox
             // 
@@ -233,6 +238,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

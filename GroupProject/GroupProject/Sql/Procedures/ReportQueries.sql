@@ -5,7 +5,7 @@ DROP PROCEDURE IF EXISTS Season.usp_SearchGames;
 GO
 CREATE PROCEDURE Season.usp_SearchGames @StartDate DATE, @EndDate Date
 AS
-SELECT G.Date,
+SELECT TOP 20 G.Date,
 	HomeTeams.Name AS Home, VisitingTeams.Name AS Visior, G.GameID
 FROM Season.Game G
 	INNER JOIN Season.TeamGame TG
@@ -32,6 +32,7 @@ FROM Season.Game G
 	ON TG.GameID = VisitingTeams.GameID
 WHERE G.Date BETWEEN @StartDate AND @EndDate
 GROUP BY G.GameID, HomeTeams.Name, VisitingTeams.Name, G.Date
+ORDER BY G.Date
 GO
 
 EXEC Season.usp_SearchGames '2020-01-01', '2021-01-01'

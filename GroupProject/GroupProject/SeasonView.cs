@@ -100,5 +100,19 @@ namespace GroupProject
         {
             fillTable();
         }
+
+        
+        private void uxDataGrid_CellMouseClick(object sender, EventArgs e)
+        {
+            switch (state)
+            {
+                case DVState.Players:
+                    int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new PlayerStats(/*conMan, id*/).Show();
+                    break;
+
+            }
+
+        }
     }
 }

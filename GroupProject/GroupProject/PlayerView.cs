@@ -12,9 +12,25 @@ namespace GroupProject
 {
     public partial class PlayerView : Form
     {
-        public PlayerView()
+        private ConnectionManager conMan;
+
+        private int ID;
+        private string name;
+        private int teamID;
+        private string team;
+        private string position;
+
+
+        public PlayerView(ConnectionManager cm, int playerID)
         {
+            conMan = cm;
             InitializeComponent();
+
+        }
+
+        public override string ToString()
+        {
+            return name + ": " + team + " " + position;
         }
     }
 }
