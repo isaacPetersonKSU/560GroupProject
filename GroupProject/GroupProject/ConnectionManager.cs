@@ -16,22 +16,26 @@ namespace GroupProject
         private SqlCommand searchByPlayerName;
         private SqlCommand searchByTeamName;
         private SqlCommand getAllGames;
+        private SqlCommand getPlayerInfo;
 
         public ConnectionManager(string conStr)
         {
             Connection = new SqlConnection(conStr);
 
-            getTouchdownLeaders = new SqlCommand("Season.usp_TouchdownLeaders", Connection);
+            getTouchdownLeaders = new SqlCommand(@"Season.usp_TouchdownLeaders", Connection);
             getTouchdownLeaders.CommandType = CommandType.StoredProcedure;
 
-            searchByPlayerName = new SqlCommand("Season.usp_SearchPlayers", Connection);
+            searchByPlayerName = new SqlCommand(@"Season.usp_SearchPlayers", Connection);
             searchByPlayerName.CommandType = CommandType.StoredProcedure;
 
-            searchByTeamName = new SqlCommand("Season.usp_SearchTeams", Connection);
+            searchByTeamName = new SqlCommand(@"Season.usp_SearchTeams", Connection);
             searchByTeamName.CommandType = CommandType.StoredProcedure;
 
-            getAllGames = new SqlCommand("Season.usp_SearchGames", Connection);
+            getAllGames = new SqlCommand(@"Season.usp_SearchGames", Connection);
             getAllGames.CommandType = CommandType.StoredProcedure;
+
+            getPlayerInfo = new SqlCommand(@"Season.usp_PlayerByID", Connection);
+            getPlayerInfo.CommandType = CommandType.StoredProcedure;
         }
 
         public DataTable TouchDownLeaders(string sortBy)
@@ -97,6 +101,23 @@ namespace GroupProject
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);
             return dt;
+        }
+
+        public string PlayerString(int playerID)
+        {
+            getPlayerInfo.Parameters.Clear();
+            SqlParameter pr = new SqlParameter("@PlayerID", SqlDbType.Int);
+            pr.Value = playerID;
+            getPlayerInfo.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getPlayerInfo);
+            DataTable dt = new DataTable();
+            
+            chartFiller.Fill(dt);
+            object[] info = dt.Rows[0].ItemArray;
+            string s = info[0] + " : " + info[2] + " " + info[3];
+
+            return s;
         }
     }
 }

@@ -38,11 +38,7 @@ namespace GroupProject
             this.label1 = new System.Windows.Forms.Label();
             this.uxTeamsRadButt = new System.Windows.Forms.RadioButton();
             this.uxGamesRadButt = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.uxTDLButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.uxStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxEndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxDateLabel2 = new System.Windows.Forms.Label();
@@ -68,7 +64,6 @@ namespace GroupProject
             this.uxDataGrid.Size = new System.Drawing.Size(840, 605);
             this.uxDataGrid.TabIndex = 0;
             this.uxDataGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.uxDataGrid_CellMouseClick);
-
             // 
             // uxSearchBox
             // 
@@ -132,51 +127,15 @@ namespace GroupProject
             this.uxGamesRadButt.UseVisualStyleBackColor = true;
             this.uxGamesRadButt.CheckedChanged += new System.EventHandler(this.uxRadButts_CheckedChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 252);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Report Queries";
-            // 
             // uxTDLButton
             // 
-            this.uxTDLButton.Location = new System.Drawing.Point(32, 297);
+            this.uxTDLButton.Location = new System.Drawing.Point(32, 296);
             this.uxTDLButton.Name = "uxTDLButton";
             this.uxTDLButton.Size = new System.Drawing.Size(197, 67);
             this.uxTDLButton.TabIndex = 9;
             this.uxTDLButton.Text = "Touchdown Leaders";
             this.uxTDLButton.UseVisualStyleBackColor = true;
             this.uxTDLButton.Click += new System.EventHandler(this.uxTDLButton_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(32, 370);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 67);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Team Comparison";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(32, 443);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(197, 67);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "All-purpose yardage";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(32, 516);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(197, 67);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Team averages";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // uxStartDatePicker
             // 
@@ -220,11 +179,7 @@ namespace GroupProject
             this.Controls.Add(this.uxDateLabel2);
             this.Controls.Add(this.uxStartDatePicker);
             this.Controls.Add(this.uxEndDatePicker);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.uxTDLButton);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.uxGamesRadButt);
             this.Controls.Add(this.uxTeamsRadButt);
             this.Controls.Add(this.label1);
@@ -254,11 +209,7 @@ namespace GroupProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton uxTeamsRadButt;
         private System.Windows.Forms.RadioButton uxGamesRadButt;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button uxTDLButton;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DateTimePicker uxStartDatePicker;
         private System.Windows.Forms.Label uxDateLabel2;
         private System.Windows.Forms.DateTimePicker uxEndDatePicker;

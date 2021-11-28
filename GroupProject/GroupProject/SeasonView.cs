@@ -109,9 +109,14 @@ namespace GroupProject
                 case DVState.Players:
                     int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
                     new PlayerStats(/*conMan, id*/).Show();
-                    break;
 
+
+
+                    MessageBox.Show(conMan.PlayerString(id));
+                    break;
             }
+
+
 
         }
     }
