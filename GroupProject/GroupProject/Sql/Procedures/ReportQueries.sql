@@ -113,7 +113,7 @@ GO
 DROP PROCEDURE IF EXISTS Season.usp_TeamTotals;
 GO
 
-CREATE PROCEDURE Season.usp_TeamTotals @StartDate date, @EndDate date
+CREATE PROCEDURE Season.usp_TeamTotals @TeamID INT
 AS
 SELECT T.Name, 
 	SUM(PG.Fumbles) AS Fumbles,
@@ -131,10 +131,10 @@ FROM Season.Player P
 	ON P.TeamID = T.TeamID
 	INNER JOIN Season.Game G
 	ON PG.GameID = G.GameID
-WHERE G.Date BETWEEN @StartDate and @EndDate
+WHERE T.TeamID = @TeamID
 GROUP BY T.Name
 ORDER BY Fumbles DESC;
 GO
 
-EXEC Season.usp_TeamTotals '2020-01-01', '2021-01-01';
+EXEC Season.usp_TeamTotals @TeamID = 4
 GO
