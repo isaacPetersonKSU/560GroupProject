@@ -55,40 +55,17 @@ namespace GroupProject
                 showdata();
             }
         }
+
+        private void uxSearchPlayerButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
+            dataGridView1.Update();
+        }
+
+        private void uxSearchTeamButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
+            dataGridView1.Update();
+        }
     }
 }
-
-/*
-private void touchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-{
-   sortform sf = new sortform();
-   sf.Text = "Total Touchdown Leaders";
-   sf.totaltouchdownleaders();
-   sf.ShowDialog();
-}
-
-private void passingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-{
-   sortform sf = new sortform();
-   sf.Text = "Passing Touchdown Leaders";
-   sf.passingtouchdownleaders();
-   sf.ShowDialog();
-}
-
-private void receivingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-{
-   sortform sf = new sortform();
-   sf.Text = "Receiving Touchdown Leaders";
-   sf.receivingtouchdownleaders();
-   sf.ShowDialog();
-}
-
-private void rushingTouchdownLeadersToolStripMenuItem_Click(object sender, EventArgs e)
-{
-   sortform sf = new sortform();
-   sf.Text = "Rushing Touchdown Leaders";
-   sf.rushingtouchdownleaders();
-   sf.ShowDialog();
-}
-*/
-

@@ -35,20 +35,21 @@ namespace GroupProject
             this.uxRecivingTDRadButt = new System.Windows.Forms.RadioButton();
             this.uxRushingTDRadButt = new System.Windows.Forms.RadioButton();
             this.uxTotalTDRadButt = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.uxSearchTeamButton = new System.Windows.Forms.Button();
+            this.uxSearchPlayerButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uxSearchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(172, 57);
+            this.dataGridView1.Location = new System.Drawing.Point(172, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 432);
+            this.dataGridView1.Size = new System.Drawing.Size(802, 414);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -110,23 +111,25 @@ namespace GroupProject
             this.uxTotalTDRadButt.UseVisualStyleBackColor = true;
             this.uxTotalTDRadButt.CheckedChanged += new System.EventHandler(this.uxRadButtSelectionChanged);
             // 
-            // button1
+            // uxSearchTeamButton
             // 
-            this.button1.Location = new System.Drawing.Point(899, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uxSearchTeamButton.Location = new System.Drawing.Point(869, 27);
+            this.uxSearchTeamButton.Name = "uxSearchTeamButton";
+            this.uxSearchTeamButton.Size = new System.Drawing.Size(105, 23);
+            this.uxSearchTeamButton.TabIndex = 7;
+            this.uxSearchTeamButton.Text = "Search for Team";
+            this.uxSearchTeamButton.UseVisualStyleBackColor = true;
+            this.uxSearchTeamButton.Click += new System.EventHandler(this.uxSearchTeamButton_Click);
             // 
-            // button2
+            // uxSearchPlayerButton
             // 
-            this.button2.Location = new System.Drawing.Point(818, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.uxSearchPlayerButton.Location = new System.Drawing.Point(758, 27);
+            this.uxSearchPlayerButton.Name = "uxSearchPlayerButton";
+            this.uxSearchPlayerButton.Size = new System.Drawing.Size(105, 23);
+            this.uxSearchPlayerButton.TabIndex = 8;
+            this.uxSearchPlayerButton.Text = "Search for Player";
+            this.uxSearchPlayerButton.UseVisualStyleBackColor = true;
+            this.uxSearchPlayerButton.Click += new System.EventHandler(this.uxSearchPlayerButton_Click);
             // 
             // button3
             // 
@@ -137,12 +140,12 @@ namespace GroupProject
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // uxSearchBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(414, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(398, 20);
-            this.textBox1.TabIndex = 10;
+            this.uxSearchBox.Location = new System.Drawing.Point(354, 29);
+            this.uxSearchBox.Name = "uxSearchBox";
+            this.uxSearchBox.Size = new System.Drawing.Size(398, 20);
+            this.uxSearchBox.TabIndex = 10;
             // 
             // TouchdownLeaders
             // 
@@ -150,10 +153,10 @@ namespace GroupProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(986, 501);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.uxSearchBox);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.uxSearchPlayerButton);
+            this.Controls.Add(this.uxSearchTeamButton);
             this.Controls.Add(this.uxTotalTDRadButt);
             this.Controls.Add(this.uxRushingTDRadButt);
             this.Controls.Add(this.uxRecivingTDRadButt);
@@ -177,10 +180,10 @@ namespace GroupProject
         private System.Windows.Forms.RadioButton uxRecivingTDRadButt;
         private System.Windows.Forms.RadioButton uxRushingTDRadButt;
         private System.Windows.Forms.RadioButton uxTotalTDRadButt;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button uxSearchTeamButton;
+        private System.Windows.Forms.Button uxSearchPlayerButton;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox uxSearchBox;
     }
 }
 

@@ -14,6 +14,7 @@ namespace GroupProject
 
         private SqlCommand getTouchdownLeaders;
         private SqlCommand searchByPlayerName;
+        private SqlCommand searchByTeamName;
 
         public ConnectionManager(string conStr)
         {
@@ -22,8 +23,11 @@ namespace GroupProject
             getTouchdownLeaders = new SqlCommand("Season.usp_TouchdownLeaders", Connection);
             getTouchdownLeaders.CommandType = CommandType.StoredProcedure;
 
-            searchByPlayerName = new SqlCommand("Season.usp_SearchPlayers");
+            searchByPlayerName = new SqlCommand("Season.usp_SearchPlayers", Connection);
             searchByPlayerName.CommandType = CommandType.StoredProcedure;
+
+            searchByTeamName = new SqlCommand("Season.usp_SearchTeams", Connection);
+            searchByTeamName.CommandType = CommandType.StoredProcedure;
         }
 
         public DataTable Players(string sortBy)
@@ -51,7 +55,23 @@ namespace GroupProject
 
             searchByPlayerName.Parameters.Add(pr);
 
-            SqlDataAdapter chartFiller = new SqlDataAdapter(getTouchdownLeaders);
+            SqlDataAdapter chartFiller = new SqlDataAdapter(searchByPlayerName);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public DataTable SearchTeamName(string name)
+        {
+            searchByTeamName.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@name", SqlDbType.VarChar);
+            pr.Value = name;
+
+            searchByTeamName.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(searchByTeamName);
 
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);
