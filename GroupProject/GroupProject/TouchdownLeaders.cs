@@ -34,8 +34,6 @@ namespace GroupProject
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            /*
-            MessageBox.Show(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             
             PlayerStats ps = new PlayerStats();
             int PlayerID = 44;
@@ -43,7 +41,7 @@ namespace GroupProject
             ps.showdata(PlayerID, TeamID);
             ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
-            */
+
         }
 
         private void uxRadButtSelectionChanged(object sender, EventArgs e)

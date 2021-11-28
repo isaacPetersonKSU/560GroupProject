@@ -20,15 +20,11 @@ namespace GroupProject
     public partial class DefaultView : Form
     {
         private DVState state;
-
         private ConnectionManager conMan;
-
 
         public DefaultView(ConnectionManager cm)
         {
             conMan = cm;
-
-
             InitializeComponent();
             showPlayers();
         }
@@ -50,6 +46,7 @@ namespace GroupProject
                     uxDataGrid.DataSource = conMan.SearchTeamName(uxSearchBox.Text);
                     break;
                 case DVState.Games:
+                    uxDataGrid.DataSource = conMan.AllGames();
                     break;
             }
             
@@ -67,9 +64,13 @@ namespace GroupProject
             if (rb.Checked)
             {
                 uxSearchBox.Clear();
+                uxSearchBox.Enabled = true;
+                uxSearchButton.Enabled = true;
                 switch (rb.Text)
                 {
                     case "Games":
+                        uxSearchBox.Enabled = false;
+                        uxSearchButton.Enabled = false;
                         state = DVState.Games;
                         break;
                     case "Players":
@@ -86,6 +87,11 @@ namespace GroupProject
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             fillTable();
+        }
+
+        private void uxDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

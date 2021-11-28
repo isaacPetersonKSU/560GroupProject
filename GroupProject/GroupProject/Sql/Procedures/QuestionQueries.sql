@@ -16,12 +16,12 @@ WHERE P.Name Like @Name + '%'
 ORDER BY P.Name;
 GO
 
---Searches for players by team name
+--Searches for teams by name
 DROP PROCEDURE IF EXISTS Season.usp_SearchTeams;
 GO
 CREATE PROCEDURE Season.usp_SearchTeams @Name NVARCHAR(64)
 AS
-SELECT T.Name AS Team, T.TeamID, T.Abbreviation
+SELECT T.Name, T.Abbreviation, T.TeamID
 FROM Season.Team T
 WHERE T.Name Like @Name + '%'
 	OR T.Name Like '%' + @Name + '%'

@@ -52,8 +52,9 @@ namespace GroupProject
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1604, 888);
+            this.dataGridView1.Size = new System.Drawing.Size(1440, 888);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -134,7 +135,7 @@ namespace GroupProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1972, 963);
+            this.ClientSize = new System.Drawing.Size(1800, 963);
             this.Controls.Add(this.uxDiscriptionLabel);
             this.Controls.Add(this.uxTotalTDRadButt);
             this.Controls.Add(this.uxRushingTDRadButt);
