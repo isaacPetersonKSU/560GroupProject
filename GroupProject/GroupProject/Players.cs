@@ -13,24 +13,29 @@ namespace GroupProject
 {
     public partial class Players : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrimaryData;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False");
-        SqlDataAdapter adpt;
-        DataTable dt;
-        public Players()
+        ConnectionManager conMan;
+        //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrimaryData;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False");
+        //SqlDataAdapter adpt;
+        //DataTable dt;
+        public Players(ConnectionManager cm)
         {
+            conMan = cm;
             InitializeComponent();
             showdata();
         }
 
         public void showdata()
         {
+            dataGridView1.DataSource = conMan.Players("TotalTDs", "desc");
+            /*
             string sqltext = @"Select p.PlayerID, p.[Name] as Player, p.Position, T.[Name] as TeamName, p.TeamID From Season.Player P inner join Season.Team T ON T.TeamID = P.TeamID;";
-           //SqlCommand mycmd = new SqlCommand("PlayerList", con);
+            //SqlCommand mycmd = new SqlCommand("PlayerList", con);
             //mycmd.CommandType = CommandType.StoredProcedure;
             adpt = new SqlDataAdapter(sqltext, con);
             dt = new DataTable();
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
+            */
         }
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

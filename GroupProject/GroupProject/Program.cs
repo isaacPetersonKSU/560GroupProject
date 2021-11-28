@@ -14,9 +14,13 @@ namespace GroupProject
         [STAThread]
         static void Main()
         {
+            ConnectionManager conMan = new ConnectionManager(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = PrimaryData; Integrated Security = True; Persist Security Info = False; Pooling = False; MultipleActiveResultSets = False; Connect Timeout = 60; Encrypt = False; TrustServerCertificate = False");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Players());
+
+
+            Application.Run(new Players(conMan));
         }
     }
 }
