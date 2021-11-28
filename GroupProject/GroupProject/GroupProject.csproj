@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Players.cs">
+    <Compile Include="SeasonView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Players.Designer.cs">
-      <DependentUpon>Players.cs</DependentUpon>
+    <Compile Include="SeasonView.Designer.cs">
+      <DependentUpon>SeasonView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerView.Designer.cs">
+      <DependentUpon>PlayerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TouchdownLeaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TouchdownLeaders.Designer.cs">
+      <DependentUpon>TouchdownLeaders.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerStats.cs">
       <SubType>Form</SubType>
@@ -60,14 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sortform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sortform.Designer.cs">
-      <DependentUpon>sortform.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Players.resx">
-      <DependentUpon>Players.cs</DependentUpon>
+    <Compile Include="ConnectionManager.cs" />
+    <EmbeddedResource Include="SeasonView.resx">
+      <DependentUpon>SeasonView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TouchdownLeaders.resx">
+      <DependentUpon>TouchdownLeaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerStats.resx">
       <DependentUpon>PlayerStats.cs</DependentUpon>
@@ -81,9 +91,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="sortform.resx">
-      <DependentUpon>sortform.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GroupProject",
+    "\\GroupProject\\Sql"
   ],
-  "SelectedNode": "\\GroupProject.sln",
+  "SelectedNode": "\\GroupProject\\Sql\\SearchQueries.sql",
   "PreviewInSolutionExplorer": false
 }
