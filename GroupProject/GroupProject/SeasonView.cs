@@ -28,13 +28,7 @@ namespace GroupProject
             InitializeComponent();
             uxDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            showPlayers();
-        }
-
-        private void showPlayers()
-        {
-            uxDataGrid.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
-            uxDataGrid.Refresh();
+            fillTable();
         }
 
         private void fillTable()
@@ -66,8 +60,6 @@ namespace GroupProject
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
-                uxSearchBox.Clear();
-                
                 switch (rb.Text)
                 {
                     case "Games":
@@ -108,16 +100,9 @@ namespace GroupProject
             {
                 case DVState.Players:
                     int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    new PlayerStats(/*conMan, id*/).Show();
-
-
-
-                    MessageBox.Show(conMan.PlayerString(id));
+                    new PlayerStats(id, conMan).Show();
                     break;
             }
-
-
-
         }
     }
 }

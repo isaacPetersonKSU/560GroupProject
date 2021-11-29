@@ -46,15 +46,17 @@ GO
 EXEC Season.usp_PlayerByID @PlayerID = 3
 GO
 
+
+--GetPlayerStats
 DROP PROCEDURE IF EXISTS Season.usp_PlayerStats 
 GO
 CREATE PROCEDURE Season.usp_PlayerStats @PlayerID INT, @TeamID INT
 AS
-SELECT Oppoents.Name AS Oppoent, PS.GameID, PS.Fumbles, PS.InterceptionsThrown,
+SELECT PS.Date, Oppoents.Name AS Opponent, PS.Fumbles, PS.InterceptionsThrown,
 			PS.PassingTouchdowns, PS.PassingYards, PS.ReceivingTouchdowns, PS.ReceivingYards,
 			PS.Receptions, PS.RushAttempts, PS.RushingTouchdowns, PS.RushingYards, PS.GameID
 FROM (
-		SELECT G.GameID, PG.Fumbles, PG.InterceptionsThrown, PG.PassingTouchdowns,
+		SELECT G.GameID, G.Date, PG.Fumbles, PG.InterceptionsThrown, PG.PassingTouchdowns,
 			PG.PassingYards, PG.ReceivingTouchdowns, PG.ReceivingYards,
 			PG.Receptions, PG.RushAttempts, PG.RushingTouchdowns, PG.RushingYards
 		FROM Season.PlayerGame PG

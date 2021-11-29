@@ -29,39 +29,55 @@ namespace GroupProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.uxDataTable = new System.Windows.Forms.DataGridView();
+            this.uxPlayerLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // uxDataTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 193);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1600, 672);
-            this.dataGridView1.TabIndex = 0;
+            this.uxDataTable.AllowUserToAddRows = false;
+            this.uxDataTable.AllowUserToDeleteRows = false;
+            this.uxDataTable.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.uxDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uxDataTable.Location = new System.Drawing.Point(50, 113);
+            this.uxDataTable.Margin = new System.Windows.Forms.Padding(6);
+            this.uxDataTable.Name = "uxDataTable";
+            this.uxDataTable.ReadOnly = true;
+            this.uxDataTable.RowHeadersVisible = false;
+            this.uxDataTable.RowHeadersWidth = 82;
+            this.uxDataTable.Size = new System.Drawing.Size(1504, 672);
+            this.uxDataTable.TabIndex = 0;
+            // 
+            // uxPlayerLabel
+            // 
+            this.uxPlayerLabel.AutoSize = true;
+            this.uxPlayerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uxPlayerLabel.Location = new System.Drawing.Point(670, 9);
+            this.uxPlayerLabel.Name = "uxPlayerLabel";
+            this.uxPlayerLabel.Size = new System.Drawing.Size(100, 37);
+            this.uxPlayerLabel.TabIndex = 1;
+            this.uxPlayerLabel.Text = "label1";
             // 
             // PlayerStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
-            this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.uxPlayerLabel);
+            this.Controls.Add(this.uxDataTable);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PlayerStats";
             this.Text = "PlayerStats";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataTable)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView uxDataTable;
+        private System.Windows.Forms.Label uxPlayerLabel;
     }
 }

@@ -34,14 +34,14 @@ namespace GroupProject
 
         public void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            /*
             PlayerStats ps = new PlayerStats();
             int PlayerID = 44;
             int TeamID = (int)dataGridView1.CurrentRow.Cells[4].Value;
-            ps.showdata(PlayerID, TeamID);
+            //ps.showdata(PlayerID, TeamID);
             ps.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " Stats";
             ps.ShowDialog();
-
+            */
         }
 
         private void uxRadButtSelectionChanged(object sender, EventArgs e)
