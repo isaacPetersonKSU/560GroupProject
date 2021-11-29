@@ -12,9 +12,12 @@ namespace GroupProject
 {
     public partial class GameStats : Form
     {
-        public GameStats()
+        ConnectionManager conMan;
+        public GameStats(ConnectionManager cm, int gameid)
         {
+            conMan = cm;
             InitializeComponent();
+            //ShowData(gameid);
         }
         public string HomeLabelText
         {

@@ -40,9 +40,6 @@ namespace GroupProject
             this.uxGamesRadButt = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.uxTDLButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.uxStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxEndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.uxDateLabel2 = new System.Windows.Forms.Label();
@@ -159,36 +156,6 @@ namespace GroupProject
             this.uxTDLButton.UseVisualStyleBackColor = true;
             this.uxTDLButton.Click += new System.EventHandler(this.uxTDLButton_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(16, 192);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 35);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Team Comparison";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(16, 230);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 35);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "All-purpose yardage";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(16, 268);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 35);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Team averages";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // uxStartDatePicker
             // 
             this.uxStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -234,9 +201,6 @@ namespace GroupProject
             this.Controls.Add(this.uxDateLabel2);
             this.Controls.Add(this.uxStartDatePicker);
             this.Controls.Add(this.uxEndDatePicker);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.uxTDLButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uxGamesRadButt);
@@ -273,9 +237,6 @@ namespace GroupProject
         private System.Windows.Forms.RadioButton uxGamesRadButt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button uxTDLButton;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DateTimePicker uxStartDatePicker;
         private System.Windows.Forms.Label uxDateLabel2;
         private System.Windows.Forms.DateTimePicker uxEndDatePicker;

@@ -12,9 +12,18 @@ namespace GroupProject
 {
     public partial class TeamStats : Form
     {
-        public TeamStats()
+        ConnectionManager conMan;
+        public TeamStats(ConnectionManager cm, string teamid)
         {
+            conMan = cm;
             InitializeComponent();
+            ShowData(teamid);
+        }
+
+        private void ShowData(string teamid)
+        {
+            uxDataGrid.DataSource = conMan.TeamStats(teamid);
+            uxDataGrid.Refresh();
         }
     }
 }

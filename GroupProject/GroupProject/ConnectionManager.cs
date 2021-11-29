@@ -16,6 +16,9 @@ namespace GroupProject
         private SqlCommand searchByPlayerName;
         private SqlCommand searchByTeamName;
         private SqlCommand getAllGames;
+        private SqlCommand getTeamStats;
+        private SqlCommand getPlayerStats;
+        private SqlCommand getAllPurposeYards;
 
         public ConnectionManager(string conStr)
         {
@@ -32,6 +35,15 @@ namespace GroupProject
 
             getAllGames = new SqlCommand("Season.usp_SearchGames", Connection);
             getAllGames.CommandType = CommandType.StoredProcedure;
+
+            getTeamStats = new SqlCommand("Season.usp_TeamTotals", Connection);
+            getTeamStats.CommandType = CommandType.StoredProcedure;
+
+            getPlayerStats = new SqlCommand("Season.usp_PlayerStats", Connection);
+            getPlayerStats.CommandType = CommandType.StoredProcedure;
+
+            getAllPurposeYards = new SqlCommand("Season.usp_AllPurposeYards", Connection);
+            getAllPurposeYards.CommandType = CommandType.StoredProcedure;
         }
 
         public DataTable TouchDownLeaders(string sortBy)
@@ -93,6 +105,37 @@ namespace GroupProject
 
             getAllGames.Parameters.AddRange(pr);
             SqlDataAdapter chartFiller = new SqlDataAdapter(getAllGames);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+        public DataTable TeamStats(string TeamID)
+        {
+            getTeamStats.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@TeamID", SqlDbType.VarChar);
+            pr.Value = TeamID;
+
+            getTeamStats.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTeamStats);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public DataTable PlayerStats(int PlayerID)
+        {
+            getTeamStats.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@PlayerID", SqlDbType.VarChar);
+            pr.Value = PlayerID;
+
+            getTeamStats.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getPlayerStats);
 
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);

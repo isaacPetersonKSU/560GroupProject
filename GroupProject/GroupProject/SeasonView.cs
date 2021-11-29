@@ -107,21 +107,23 @@ namespace GroupProject
             switch (state)
             {
                 case DVState.Players:
-                    int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    PlayerStats ps = new PlayerStats(/*conMan, id*/);
+                    int playerid = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    PlayerStats ps = new PlayerStats(conMan, playerid);
                     ps.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Stats";
                     ps.Show();
                     break;
                 case DVState.Games:
-                    GameStats gs = new GameStats(/*conMan*/);
+                    int gameid = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    GameStats gs = new GameStats(conMan, gameid);
                     gs.Text = uxDataGrid.CurrentRow.Cells[1].Value.ToString() +" VS " + uxDataGrid.CurrentRow.Cells[2].Value.ToString() + " Stats";
                     gs.HomeLabelText = "Home Team: " + uxDataGrid.CurrentRow.Cells[1].Value.ToString();
                     gs.AwayLabelText = "Away Team: " + uxDataGrid.CurrentRow.Cells[2].Value.ToString();
                     gs.Show();
                     break;
                 case DVState.Teams:
-                    TeamStats ts = new TeamStats(/*conMan*/);
-                    ts.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Stats";
+                    string teamid = uxDataGrid.CurrentRow.Cells[2].Value.ToString();
+                    TeamStats ts = new TeamStats(conMan, teamid);
+                    ts.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Totals";
                     ts.Show();
                     break;
 
