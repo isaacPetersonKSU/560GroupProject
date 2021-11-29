@@ -99,8 +99,12 @@ namespace GroupProject
             switch (state)
             {
                 case DVState.Players:
-                    int id = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    new PlayerStats(id, conMan).Show();
+                    int playerID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new PlayerStats(playerID, conMan).Show();
+                    break;
+                case DVState.Teams:
+                    int teamID = (int)uxDataGrid.CurrentRow.Cells[2].Value;
+                    new TeamStats(teamID, conMan).Show();
                     break;
             }
         }

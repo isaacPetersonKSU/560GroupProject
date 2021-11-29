@@ -18,6 +18,11 @@ namespace GroupProject
         private SqlCommand getAllGames;
         private SqlCommand getPlayerInfo;
         private SqlCommand getPlayerStats;
+        private SqlCommand getTeamTotals;
+        private SqlCommand getTeamPlayers;
+        private SqlCommand getTeamName;
+
+
 
         public ConnectionManager(string conStr)
         {
@@ -40,6 +45,15 @@ namespace GroupProject
 
             getPlayerStats = new SqlCommand(@"Season.usp_PlayerStats", Connection);
             getPlayerStats.CommandType = CommandType.StoredProcedure;
+
+            getTeamTotals = new SqlCommand(@"Season.usp_TeamTotals", Connection);
+            getTeamTotals.CommandType = CommandType.StoredProcedure;
+
+            getTeamPlayers = new SqlCommand(@"Season.usp_PlayersOnTeam", Connection);
+            getTeamPlayers.CommandType = CommandType.StoredProcedure;
+
+            getTeamName = new SqlCommand(@"Season.usp_TeamName", Connection);
+            getTeamName.CommandType = CommandType.StoredProcedure;
         }
 
         public DataTable TouchDownLeaders(string sortBy)
@@ -139,6 +153,54 @@ namespace GroupProject
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);
             return dt;
+        }
+
+        public DataTable TeamTotals(int teamID)
+        {
+            getTeamTotals.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@TeamID", SqlDbType.Int);
+            pr.Value = teamID;
+
+            getTeamTotals.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTeamTotals);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public DataTable TeamPlayers(int teamID)
+        {
+            getTeamPlayers.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@TeamID", SqlDbType.Int);
+            pr.Value = teamID;
+
+            getTeamPlayers.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTeamPlayers);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public string TeamName(int teamID)
+        {
+            getTeamName.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@TeamID", SqlDbType.Int);
+            pr.Value = teamID;
+
+            getTeamName.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getTeamName);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return (string)dt.Rows[0].ItemArray[0];
         }
     }
 }

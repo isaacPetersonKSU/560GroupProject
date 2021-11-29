@@ -35,8 +35,6 @@ GROUP BY G.GameID, HomeTeams.Name, VisitingTeams.Name, G.Date
 ORDER BY G.Date ASC
 GO
 
-EXEC Season.usp_SearchGames '2020-01-01', '2021-01-01'
-GO
 
 
 --Ranks players by total number of touchdowns scored
@@ -76,9 +74,6 @@ ORDER BY
 	END DESC
 GO
 
-EXEC Season.usp_TouchdownLeaders @OrderBy = 'Receiving Touchdowns'
-GO
-
 
 
 --List all-purpose Yards for every player from a particular game
@@ -102,10 +97,6 @@ WHERE PG.GameID = @GameID
 GROUP BY P.Name, G.Date, T.Name
 ORDER BY AllPurposeYards DESC
 GO
-
-EXEC Season.usp_AllPurposeYards @GameID = 66;
-GO
-
 
 
 
@@ -134,7 +125,4 @@ FROM Season.Player P
 WHERE G.Date BETWEEN @StartDate and @EndDate
 GROUP BY T.Name
 ORDER BY Fumbles DESC;
-GO
-
-EXEC Season.usp_TeamTotals '2020-01-01', '2021-01-01';
 GO

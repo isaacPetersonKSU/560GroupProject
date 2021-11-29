@@ -53,6 +53,12 @@
     <Compile Include="SeasonView.Designer.cs">
       <DependentUpon>SeasonView.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeamStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamStats.Designer.cs">
+      <DependentUpon>TeamStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="TouchdownLeaders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="ConnectionManager.cs" />
     <EmbeddedResource Include="SeasonView.resx">
       <DependentUpon>SeasonView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamStats.resx">
+      <DependentUpon>TeamStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TouchdownLeaders.resx">
       <DependentUpon>TouchdownLeaders.cs</DependentUpon>
