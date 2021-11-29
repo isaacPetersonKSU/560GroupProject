@@ -53,12 +53,6 @@
     <Compile Include="SeasonView.Designer.cs">
       <DependentUpon>SeasonView.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayerView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PlayerView.Designer.cs">
-      <DependentUpon>PlayerView.cs</DependentUpon>
-    </Compile>
     <Compile Include="TouchdownLeaders.cs">
       <SubType>Form</SubType>
     </Compile>

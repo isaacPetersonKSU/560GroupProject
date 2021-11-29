@@ -54,7 +54,7 @@ CREATE PROCEDURE Season.usp_PlayerStats @PlayerID INT, @TeamID INT
 AS
 SELECT PS.Date, Oppoents.Name AS Opponent, PS.Fumbles, PS.InterceptionsThrown,
 			PS.PassingTouchdowns, PS.PassingYards, PS.ReceivingTouchdowns, PS.ReceivingYards,
-			PS.Receptions, PS.RushAttempts, PS.RushingTouchdowns, PS.RushingYards, PS.GameID
+			PS.Receptions, PS.RushAttempts, PS.RushingTouchdowns, PS.RushingYards
 FROM (
 		SELECT G.GameID, G.Date, PG.Fumbles, PG.InterceptionsThrown, PG.PassingTouchdowns,
 			PG.PassingYards, PG.ReceivingTouchdowns, PG.ReceivingYards,
