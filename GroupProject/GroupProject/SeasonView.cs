@@ -28,13 +28,7 @@ namespace GroupProject
             InitializeComponent();
             uxDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            showPlayers();
-        }
-
-        private void showPlayers()
-        {
-            uxDataGrid.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
-            uxDataGrid.Refresh();
+            fillTable();
         }
 
         private void fillTable()
@@ -66,8 +60,6 @@ namespace GroupProject
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
-                uxSearchBox.Clear();
-                
                 switch (rb.Text)
                 {
                     case "Games":
@@ -107,28 +99,18 @@ namespace GroupProject
             switch (state)
             {
                 case DVState.Players:
-                    int playerid = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    PlayerStats ps = new PlayerStats(conMan, playerid);
-                    ps.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Stats";
-                    ps.Show();
-                    break;
-                case DVState.Games:
-                    int gameid = (int)uxDataGrid.CurrentRow.Cells[3].Value;
-                    GameStats gs = new GameStats(conMan, gameid);
-                    gs.Text = uxDataGrid.CurrentRow.Cells[1].Value.ToString() +" VS " + uxDataGrid.CurrentRow.Cells[2].Value.ToString() + " Stats";
-                    gs.HomeLabelText = "Home Team: " + uxDataGrid.CurrentRow.Cells[1].Value.ToString();
-                    gs.AwayLabelText = "Away Team: " + uxDataGrid.CurrentRow.Cells[2].Value.ToString();
-                    gs.Show();
+                    int playerID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new PlayerStats(playerID, conMan).Show();
                     break;
                 case DVState.Teams:
-                    string teamid = uxDataGrid.CurrentRow.Cells[2].Value.ToString();
-                    TeamStats ts = new TeamStats(conMan, teamid);
-                    ts.Text = uxDataGrid.CurrentRow.Cells[0].Value.ToString() + " Totals";
-                    ts.Show();
+                    int teamID = (int)uxDataGrid.CurrentRow.Cells[2].Value;
+                    new TeamStats(teamID, conMan).Show();
                     break;
-
+                case DVState.Games:
+                    int gameID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new GameStats(gameID, conMan).Show();
+                    break;
             }
-
         }
     }
 }

@@ -16,6 +16,8 @@ WHERE P.Name Like @Name + '%'
 ORDER BY P.Name;
 GO
 
+
+
 --Searches for teams by name
 DROP PROCEDURE IF EXISTS Season.usp_SearchTeams;
 GO
@@ -29,6 +31,118 @@ WHERE T.Name Like @Name + '%'
 ORDER BY T.Name;
 GO
 
-EXEC Season.usp_SearchTeams @Name = 'Kansas'
+
+--Gets basic info about a player from his ID
+DROP PROCEDURE IF EXISTS Season.usp_PlayerByID
+GO
+CREATE PROCEDURE Season.usp_PlayerByID @PlayerID INT
+AS
+SELECT P.Name, T.TeamID, T.Name, P.Position
+FROM Season.Player P
+	INNER JOIN Season.Team T
+	ON P.TeamID = T.TeamID
+WHERE P.PlayerID = @PlayerID
 GO
 
+
+
+
+--totals of every player stat on a team
+DROP PROCEDURE IF EXISTS Season.usp_TeamTotals
+GO
+CREATE PROCEDURE Season.usp_TeamTotals @TeamID INT
+AS
+SELECT SUM(PG.Fumbles) AS Fumbles, 
+	SUM(PG.InterceptionsThrown) AS InterceptionsThrown,
+	SUM(PG.PassingTouchdowns) AS PassingTouchdowns,
+	SUM(PG.PassingYards) AS PassingYards,
+	SUM(PG.ReceivingTouchdowns) AS ReceivingTouchdowns,
+	SUM(PG.ReceivingYards) AS ReceivingYards,
+	SUM(PG.Receptions) AS Receptions,
+	SUM(PG.RushAttempts) AS RushAttempts,
+	SUM(PG.RushingTouchdowns) AS RushingTouchdowns,
+	SUM(PG.RushingYards) AS RushingYards
+FROM Season.PlayerGame PG
+	INNER JOIN Season.Player P
+	ON P.PlayerID = PG.PlayerID
+WHERE P.TeamID = @TeamID
+GO
+
+EXEC Season.usp_TeamTotals @TeamID = 1
+GO
+
+
+--Gets all games and related info
+DROP PROCEDURE IF EXISTS Season.usp_SearchGames;
+GO
+CREATE PROCEDURE Season.usp_SearchGames @StartDate DATE, @EndDate Date
+AS
+SELECT TOP 20 G.Date,
+	HomeTeams.Name AS Home, VisitingTeams.Name AS Visior, G.GameID
+FROM Season.Game G
+	INNER JOIN Season.TeamGame TG
+	ON G.GameID = TG.GameID
+	INNER JOIN (
+		SELECT T.Name, TG.GameID
+		FROM Season.TeamGame TG
+			INNER JOIN Season.TeamType TT
+			ON TG.TeamTypeID = TT.TeamTypeID
+			INNER JOIN Season.Team T
+			ON TG.TeamID = T.TeamID
+		WHERE TT.Name = 'Home'
+	) AS HomeTeams 
+	ON TG.GameID = HomeTeams.GameID
+	INNER JOIN (
+		SELECT T.Name, TG.GameID
+		FROM Season.TeamGame TG
+			INNER JOIN Season.TeamType TT
+			ON TG.TeamTypeID = TT.TeamTypeID
+			INNER JOIN Season.Team T
+			ON TG.TeamID = T.TeamID
+		WHERE TT.Name = 'Away'
+	) AS VisitingTeams 
+	ON TG.GameID = VisitingTeams.GameID
+WHERE G.Date BETWEEN @StartDate AND @EndDate
+GROUP BY G.GameID, HomeTeams.Name, VisitingTeams.Name, G.Date
+ORDER BY G.Date ASC;
+GO
+
+
+
+--gets a list of every player on a team
+DROP PROCEDURE IF EXISTS Season.usp_PlayersOnTeam;
+GO
+CREATE PROCEDURE Season.usp_PlayersOnTeam @TeamID INT
+AS
+SELECT P.Name, P.Position
+FROM Season.Player P
+WHERE P.TeamID = @TeamID;
+GO
+
+--gets a team name froma team ID
+DROP PROCEDURE IF EXISTS Season.usp_TeamName;
+GO
+CREATE PROCEDURE Season.usp_TeamName @TeamID INT
+AS
+SELECT T.Name
+FROM Season.Team T
+WHERE T.TeamID = @TeamID;
+GO
+
+EXEC Season.usp_TeamName @TeamID = 3;
+GO
+
+DROP PROCEDURE IF EXISTS Season.usp_GameInfo;
+GO
+CREATE PROCEDURE Season.usp_GameInfo @GameID INT
+AS 
+SELECT T.Name AS Team, TG.Score, G.Date
+FROM Season.TeamGame TG
+	INNER JOIN Season.Team T
+	ON TG.TeamID = T.TeamID
+	INNER JOIN Season.Game G
+	ON TG.GameID = G.GameID
+WHERE TG.GameID = @GameID;
+GO
+
+EXEC Season.usp_GameInfo @GameID = 2

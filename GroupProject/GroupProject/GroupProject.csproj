@@ -52,6 +52,7 @@
     <Compile Include="GameStats.Designer.cs">
       <DependentUpon>GameStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="SeasonView.cs">
       <SubType>Form</SubType>
     </Compile>

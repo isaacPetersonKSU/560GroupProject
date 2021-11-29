@@ -12,17 +12,19 @@ namespace GroupProject
 {
     public partial class PlayerStats : Form
     {
-        ConnectionManager conMan;
-        public PlayerStats(ConnectionManager cm, int playerid)
+        private ConnectionManager conMan;
+        private Player player;
+
+        public PlayerStats(int id, ConnectionManager cm)
         {
             conMan = cm;
+            player = conMan.PlayerFromID(id);
             InitializeComponent();
-            ShowData(playerid);
-        }
-        private void ShowData(int playerid)
-        {
-            uxDataGrid.DataSource = conMan.PlayerStats(playerid);
-            uxDataGrid.Refresh();
+
+            uxPlayerLabel.Text = player.ToString();
+
+            uxDataTable.DataSource = conMan.PlayerStats(player.ID, player.TeamID);
+            uxDataTable.Refresh();
         }
     }
 }

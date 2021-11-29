@@ -12,34 +12,17 @@ namespace GroupProject
 {
     public partial class GameStats : Form
     {
-        ConnectionManager conMan;
-        public GameStats(ConnectionManager cm, int gameid)
+        private ConnectionManager conMan;
+        private int gameID;
+
+        public GameStats(int gid, ConnectionManager cm)
         {
             conMan = cm;
+            gameID = gid;
             InitializeComponent();
-            //ShowData(gameid);
-        }
-        public string HomeLabelText
-        {
-            get
-            {
-                return this.uxHomeLabel.Text;
-            }
-            set
-            {
-                this.uxHomeLabel.Text = value;
-            }
-        }
-        public string AwayLabelText
-        {
-            get
-            {
-                return this.uxAwayLabel.Text;
-            }
-            set
-            {
-                this.uxAwayLabel.Text = value;
-            }
+
+            uxGameSummery.DataSource = conMan.GameSummery(gameID);
+            uxAllPurpYardGrid.DataSource = conMan.AllPurposeYards(gameID);
         }
     }
 }

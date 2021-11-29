@@ -1,5 +1,4 @@
-﻿
-namespace GroupProject
+﻿namespace GroupProject
 {
     partial class GameStats
     {
@@ -29,73 +28,72 @@ namespace GroupProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.uxDataGridHome = new System.Windows.Forms.DataGridView();
-            this.uxDataGridAway = new System.Windows.Forms.DataGridView();
-            this.uxHomeLabel = new System.Windows.Forms.Label();
-            this.uxAwayLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridAway)).BeginInit();
+            this.uxAllPurpYardGrid = new System.Windows.Forms.DataGridView();
+            this.uxGameSummery = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.uxAllPurpYardGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxGameSummery)).BeginInit();
             this.SuspendLayout();
             // 
-            // uxDataGridHome
+            // uxAllPurpYardGrid
             // 
-            this.uxDataGridHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxDataGridHome.Location = new System.Drawing.Point(12, 32);
-            this.uxDataGridHome.Name = "uxDataGridHome";
-            this.uxDataGridHome.Size = new System.Drawing.Size(900, 201);
-            this.uxDataGridHome.TabIndex = 0;
+            this.uxAllPurpYardGrid.AllowUserToAddRows = false;
+            this.uxAllPurpYardGrid.AllowUserToDeleteRows = false;
+            this.uxAllPurpYardGrid.AllowUserToResizeColumns = false;
+            this.uxAllPurpYardGrid.AllowUserToResizeRows = false;
+            this.uxAllPurpYardGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.uxAllPurpYardGrid.ColumnHeadersHeight = 25;
+            this.uxAllPurpYardGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.uxAllPurpYardGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.uxAllPurpYardGrid.Location = new System.Drawing.Point(8, 97);
+            this.uxAllPurpYardGrid.MultiSelect = false;
+            this.uxAllPurpYardGrid.Name = "uxAllPurpYardGrid";
+            this.uxAllPurpYardGrid.ReadOnly = true;
+            this.uxAllPurpYardGrid.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.uxAllPurpYardGrid.RowHeadersVisible = false;
+            this.uxAllPurpYardGrid.RowHeadersWidth = 82;
+            this.uxAllPurpYardGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.uxAllPurpYardGrid.Size = new System.Drawing.Size(320, 189);
+            this.uxAllPurpYardGrid.TabIndex = 4;
             // 
-            // uxDataGridAway
+            // uxGameSummery
             // 
-            this.uxDataGridAway.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxDataGridAway.Location = new System.Drawing.Point(12, 269);
-            this.uxDataGridAway.Name = "uxDataGridAway";
-            this.uxDataGridAway.Size = new System.Drawing.Size(900, 201);
-            this.uxDataGridAway.TabIndex = 1;
-            // 
-            // uxHomeLabel
-            // 
-            this.uxHomeLabel.AutoSize = true;
-            this.uxHomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxHomeLabel.Location = new System.Drawing.Point(12, 5);
-            this.uxHomeLabel.Name = "uxHomeLabel";
-            this.uxHomeLabel.Size = new System.Drawing.Size(131, 24);
-            this.uxHomeLabel.TabIndex = 2;
-            this.uxHomeLabel.Text = "Home Team:";
-            // 
-            // uxAwayLabel
-            // 
-            this.uxAwayLabel.AutoSize = true;
-            this.uxAwayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxAwayLabel.Location = new System.Drawing.Point(12, 242);
-            this.uxAwayLabel.Name = "uxAwayLabel";
-            this.uxAwayLabel.Size = new System.Drawing.Size(125, 24);
-            this.uxAwayLabel.TabIndex = 3;
-            this.uxAwayLabel.Text = "Away Team:";
+            this.uxGameSummery.AllowUserToAddRows = false;
+            this.uxGameSummery.AllowUserToDeleteRows = false;
+            this.uxGameSummery.AllowUserToResizeColumns = false;
+            this.uxGameSummery.AllowUserToResizeRows = false;
+            this.uxGameSummery.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.uxGameSummery.ColumnHeadersHeight = 25;
+            this.uxGameSummery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.uxGameSummery.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.uxGameSummery.Location = new System.Drawing.Point(8, 12);
+            this.uxGameSummery.MultiSelect = false;
+            this.uxGameSummery.Name = "uxGameSummery";
+            this.uxGameSummery.ReadOnly = true;
+            this.uxGameSummery.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.uxGameSummery.RowHeadersVisible = false;
+            this.uxGameSummery.RowHeadersWidth = 82;
+            this.uxGameSummery.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.uxGameSummery.Size = new System.Drawing.Size(320, 79);
+            this.uxGameSummery.TabIndex = 5;
             // 
             // GameStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 487);
-            this.Controls.Add(this.uxAwayLabel);
-            this.Controls.Add(this.uxHomeLabel);
-            this.Controls.Add(this.uxDataGridAway);
-            this.Controls.Add(this.uxDataGridHome);
+            this.ClientSize = new System.Drawing.Size(340, 298);
+            this.Controls.Add(this.uxGameSummery);
+            this.Controls.Add(this.uxAllPurpYardGrid);
             this.Name = "GameStats";
             this.Text = "GameStats";
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataGridAway)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxAllPurpYardGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxGameSummery)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView uxDataGridHome;
-        private System.Windows.Forms.DataGridView uxDataGridAway;
-        private System.Windows.Forms.Label uxHomeLabel;
-        private System.Windows.Forms.Label uxAwayLabel;
+        private System.Windows.Forms.DataGridView uxAllPurpYardGrid;
+        private System.Windows.Forms.DataGridView uxGameSummery;
     }
 }
