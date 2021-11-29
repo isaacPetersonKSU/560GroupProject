@@ -106,6 +106,10 @@ namespace GroupProject
                     int teamID = (int)uxDataGrid.CurrentRow.Cells[2].Value;
                     new TeamStats(teamID, conMan).Show();
                     break;
+                case DVState.Games:
+                    int gameID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new GameStats(gameID, conMan).Show();
+                    break;
             }
         }
     }
