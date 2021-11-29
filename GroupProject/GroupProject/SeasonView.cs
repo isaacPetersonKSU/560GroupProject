@@ -28,13 +28,7 @@ namespace GroupProject
             InitializeComponent();
             uxDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            showPlayers();
-        }
-
-        private void showPlayers()
-        {
-            uxDataGrid.DataSource = conMan.SearchPlayerName(uxSearchBox.Text);
-            uxDataGrid.Refresh();
+            fillTable();
         }
 
         private void fillTable()
@@ -66,13 +60,10 @@ namespace GroupProject
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
-                uxSearchBox.Clear();
-                
                 switch (rb.Text)
                 {
                     case "Games":
                         uxSearchBox.Visible = false;
-                        uxSearchButton.Visible = false;
                         uxStartDatePicker.Visible = true;
                         uxEndDatePicker.Visible = true;
                         uxDateLabel2.Visible = true;
@@ -80,7 +71,6 @@ namespace GroupProject
                         break;
                     case "Players":
                         uxSearchBox.Visible = true;
-                        uxSearchButton.Visible = true;
                         uxStartDatePicker.Visible = false;
                         uxEndDatePicker.Visible = false;
                         uxDateLabel2.Visible = false;
@@ -88,7 +78,6 @@ namespace GroupProject
                         break;
                     case "Teams":
                         uxSearchBox.Visible = true;
-                        uxSearchButton.Visible = true;
                         uxStartDatePicker.Visible = false;
                         uxEndDatePicker.Visible = false;
                         uxDateLabel2.Visible = false;
@@ -104,11 +93,24 @@ namespace GroupProject
             fillTable();
         }
 
-        private void uxDatePicker_ValueChanged(object sender, EventArgs e)
+        
+        private void uxDataGrid_CellMouseClick(object sender, EventArgs e)
         {
-            fillTable();
-            uxStartDatePicker.MaxDate = uxEndDatePicker.Value;
-            uxEndDatePicker.MinDate = uxStartDatePicker.Value;
+            switch (state)
+            {
+                case DVState.Players:
+                    int playerID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new PlayerStats(playerID, conMan).Show();
+                    break;
+                case DVState.Teams:
+                    int teamID = (int)uxDataGrid.CurrentRow.Cells[2].Value;
+                    new TeamStats(teamID, conMan).Show();
+                    break;
+                case DVState.Games:
+                    int gameID = (int)uxDataGrid.CurrentRow.Cells[3].Value;
+                    new GameStats(gameID, conMan).Show();
+                    break;
+            }
         }
     }
 }

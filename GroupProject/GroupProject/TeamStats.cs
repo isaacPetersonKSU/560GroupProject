@@ -7,24 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 namespace GroupProject
 {
-    public partial class PlayerStats : Form
+    public partial class TeamStats : Form
     {
         private ConnectionManager conMan;
-        private Player player;
+        private int teamID;
 
-        public PlayerStats(int id, ConnectionManager cm)
+        public TeamStats(int tid, ConnectionManager cm)
         {
+            teamID = tid;
             conMan = cm;
-            player = conMan.PlayerFromID(id);
             InitializeComponent();
 
-            uxPlayerLabel.Text = player.ToString();
 
-            uxDataTable.DataSource = conMan.PlayerStats(player.ID, player.TeamID);
-            uxDataTable.Refresh();
+            uxTeamTotalsLabel.Text = conMan.TeamName(teamID) + " Team totals";
+            uxTeamTotalGrid.DataSource = conMan.TeamTotals(teamID);
+            uxPlayerList.DataSource = conMan.TeamPlayers(teamID);
         }
     }
 }

@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Sql",
-    "\\Sql\\Data"
+    "\\Sql\\Data",
+    "\\Sql\\Procedures"
   ],
-  "SelectedNode": "\\Sql\\Tables.sql",
+  "SelectedNode": "\\Sql\\Procedures\\QuestionQueries.sql",
   "PreviewInSolutionExplorer": false
 }

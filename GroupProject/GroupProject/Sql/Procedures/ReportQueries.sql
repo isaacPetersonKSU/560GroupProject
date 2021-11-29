@@ -1,41 +1,33 @@
 USE PrimaryData;
 
---Gets all games and related info
-DROP PROCEDURE IF EXISTS Season.usp_SearchGames;
+--Gets all stats for every game a player has played in
+DROP PROCEDURE IF EXISTS Season.usp_PlayerStats 
 GO
-CREATE PROCEDURE Season.usp_SearchGames @StartDate DATE, @EndDate Date
+CREATE PROCEDURE Season.usp_PlayerStats @PlayerID INT, @TeamID INT
 AS
-SELECT G.Date,
-	HomeTeams.Name AS Home, VisitingTeams.Name AS Visior, G.GameID
-FROM Season.Game G
-	INNER JOIN Season.TeamGame TG
-	ON G.GameID = TG.GameID
+SELECT PS.Date, Oppoents.Name AS Opponent, PS.Fumbles, PS.InterceptionsThrown,
+			PS.PassingYards, PS.ReceivingTouchdowns, PS.PassingTouchdowns, PS.ReceivingYards,
+			PS.Receptions, PS.RushAttempts, PS.RushingTouchdowns, PS.RushingYards
+FROM (
+		SELECT G.GameID, G.Date, PG.Fumbles, PG.InterceptionsThrown, PG.PassingTouchdowns,
+			PG.PassingYards, PG.ReceivingTouchdowns, PG.ReceivingYards,
+			PG.Receptions, PG.RushAttempts, PG.RushingTouchdowns, PG.RushingYards
+		FROM Season.PlayerGame PG
+			INNER JOIN Season.Game G
+			ON PG.GameID = G.GameID
+		WHERE PG.PlayerID = @PlayerID
+	) AS PS
 	INNER JOIN (
 		SELECT T.Name, TG.GameID
-		FROM Season.TeamGame TG
-			INNER JOIN Season.TeamType TT
-			ON TG.TeamTypeID = TT.TeamTypeID
-			INNER JOIN Season.Team T
-			ON TG.TeamID = T.TeamID
-		WHERE TT.Name = 'Home'
-	) AS HomeTeams 
-	ON TG.GameID = HomeTeams.GameID
-	INNER JOIN (
-		SELECT T.Name, TG.GameID
-		FROM Season.TeamGame TG
-			INNER JOIN Season.TeamType TT
-			ON TG.TeamTypeID = TT.TeamTypeID
-			INNER JOIN Season.Team T
-			ON TG.TeamID = T.TeamID
-		WHERE TT.Name = 'Away'
-	) AS VisitingTeams 
-	ON TG.GameID = VisitingTeams.GameID
-WHERE G.Date BETWEEN @StartDate AND @EndDate
-GROUP BY G.GameID, HomeTeams.Name, VisitingTeams.Name, G.Date
+		FROM Season.Team T
+			INNER JOIN Season.TeamGame TG
+			ON T.TeamID = TG.TeamID
+		WHERE T.TeamID != @TeamID
+	) AS Oppoents
+	ON PS.GameID = Oppoents.GameID
 GO
 
-EXEC Season.usp_SearchGames '2020-01-01', '2021-01-01'
-GO
+
 
 
 --Ranks players by total number of touchdowns scored
@@ -99,12 +91,8 @@ FROM Season.PlayerGame PG
 	ON P.TeamID = T.TeamID
 WHERE PG.GameID = @GameID 
 GROUP BY P.Name, G.Date, T.Name
-ORDER BY AllPurposeYards DESC
+ORDER BY AllPurposeYards ASC
 GO
-
-EXEC Season.usp_AllPurposeYards @GameID = 66;
-GO
-
 
 
 
@@ -133,7 +121,4 @@ FROM Season.Player P
 WHERE G.Date BETWEEN @StartDate and @EndDate
 GROUP BY T.Name
 ORDER BY Fumbles DESC;
-GO
-
-EXEC Season.usp_TeamTotals '2020-01-01', '2021-01-01';
 GO
