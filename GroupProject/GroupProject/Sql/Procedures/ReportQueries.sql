@@ -32,7 +32,7 @@ FROM Season.Game G
 	ON TG.GameID = VisitingTeams.GameID
 WHERE G.Date BETWEEN @StartDate AND @EndDate
 GROUP BY G.GameID, HomeTeams.Name, VisitingTeams.Name, G.Date
-ORDER BY G.Date
+ORDER BY G.Date ASC
 GO
 
 EXEC Season.usp_SearchGames '2020-01-01', '2021-01-01'
