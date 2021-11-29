@@ -21,6 +21,7 @@ namespace GroupProject
             gameID = gid;
             InitializeComponent();
 
+            uxGameSummery.DataSource = conMan.GameSummery(gameID);
             uxAllPurpYardGrid.DataSource = conMan.AllPurposeYards(gameID);
         }
     }

@@ -22,6 +22,7 @@ namespace GroupProject
         private SqlCommand getTeamPlayers;
         private SqlCommand getTeamName;
         private SqlCommand getAllPurpYards;
+        private SqlCommand getGameSummery;
 
 
 
@@ -58,6 +59,9 @@ namespace GroupProject
 
             getAllPurpYards = new SqlCommand(@"Season.usp_AllPurposeYards", Connection);
             getAllPurpYards.CommandType = CommandType.StoredProcedure;
+
+            getGameSummery = new SqlCommand(@"Season.usp_GameInfo", Connection);
+            getGameSummery.CommandType = CommandType.StoredProcedure;
         }
 
         public DataTable TouchDownLeaders(string sortBy)
@@ -217,6 +221,23 @@ namespace GroupProject
             getAllPurpYards.Parameters.Add(pr);
 
             SqlDataAdapter chartFiller = new SqlDataAdapter(getAllPurpYards);
+
+            DataTable dt = new DataTable();
+            chartFiller.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GameSummery(int gameID)
+        {
+
+            getGameSummery.Parameters.Clear();
+
+            SqlParameter pr = new SqlParameter("@GameID", SqlDbType.Int);
+            pr.Value = gameID;
+
+            getGameSummery.Parameters.Add(pr);
+
+            SqlDataAdapter chartFiller = new SqlDataAdapter(getGameSummery);
 
             DataTable dt = new DataTable();
             chartFiller.Fill(dt);

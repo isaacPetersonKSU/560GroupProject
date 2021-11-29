@@ -134,8 +134,15 @@ GO
 
 DROP PROCEDURE IF EXISTS Season.usp_GameInfo;
 GO
-CREATE PROCEDURE IF EXISTS Season.usp_GameInfo @GameID INT
+CREATE PROCEDURE Season.usp_GameInfo @GameID INT
 AS 
-SELECT (
-		SELECT 
-	) AS HT
+SELECT T.Name AS Team, TG.Score, G.Date
+FROM Season.TeamGame TG
+	INNER JOIN Season.Team T
+	ON TG.TeamID = T.TeamID
+	INNER JOIN Season.Game G
+	ON TG.GameID = G.GameID
+WHERE TG.GameID = @GameID;
+GO
+
+EXEC Season.usp_GameInfo @GameID = 2
